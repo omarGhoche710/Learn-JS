@@ -1,0 +1,84 @@
+/*
+  BOM [Browser Object Model]
+  Local Storage
+  - setItem
+  - getItem
+  - removeItem
+  - clear
+  - key
+
+  Info
+  - No Expiration Time
+  - HTTP And HTTPS
+  - Private Tab
+
+  EX:
+      // Get The Length
+      console.log(window.localStorage.length);
+
+      // Set Item
+      window.localStorage.setItem('color', 'red'); 
+
+      // Get key
+      console.log(window.localStorage.key(0));
+
+      // Get Item
+      console.log( window.localStorage.getItem('color'));
+      console.log( window.localStorage.color);
+      console.log( window.localStorage['color']);
+
+      // Remove Item
+      window.localStorage.removeItem('color'); 
+
+      // Use the Item
+      document.body.style.backgroundColor = window.localStorage.getItem('color');
+
+      // Clear all Items
+      window.localStorage.setItem('fontWeight', '20px');
+      window.localStorage['fontSize'] = "20px";
+      window.localStorage.padding = '20px';
+
+      window.localStorage.clear();
+*/
+
+/*
+  Practice localStorage (set Color)
+
+  - Important Note:
+    element.addEventListener('click', (e) => {
+      // use e.currentTarget
+    });
+
+    element.addEventListener('click', function (e) {
+      // use this
+    });
+
+  EX: LocalStorage.html
+
+  - Important Note
+  => target = وين صابت الطلقة
+  => currentTarget = مين ماسك السلاح
+
+*/
+
+/*
+  BOM [Browser Object Model]
+  Session Storage
+  - setItem
+  - getItem
+  - removeItem
+  - clear
+  - key
+
+  Info
+  - New Tab = New Session
+  - Duplicate Tab = Copy Session
+  - New Tab With Same Url = New Session
+
+  EX:
+      let input = document.querySelector("input");
+
+      input.onblur = function() {
+        window.sessionStorage.setItem('name', this.value);
+      }
+*/

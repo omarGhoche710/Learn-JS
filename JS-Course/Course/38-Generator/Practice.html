@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+  <body>
+    <div id="productList"></div>
+    <button id="loadMore" onclick="loadMore(this)">Load More</button>
+    <button id="loadLess" onclick="loadLess(this)" disabled>Load Less</button>
+  </body>
+  <script>
+    const products = [
+      "Laptop",
+      "Phone",
+      "Tablet",
+      "Watch",
+      "Camera",
+      "Headphones",
+      "Keyboard",
+      "Mouse",
+      "Monitor",
+      "Speaker",
+    ];
+
+    // Generator
+    function* chunk(arr, pageSize) {
+      for (let i = 0; i < arr.length; i += pageSize) {
+        yield arr.slice(i, i + pageSize);
+      }
+    }
+
+    let part = chunk(products, 3);
+
+    // Define An Array History
+    let history = [];
+
+    // Selected Array
+    let selected = 0;
+
+    // Show Products
+    function showProducts(arr) {
+      const productList = document.getElementById("productList");
+
+      productList.innerHTML = "";
+      productList.innerHTML = `Products => ${arr.join(" | ")}`;
+    }
+
+    // Function Load More
+    function loadMore(btn) {
+      const result = part.next();
+
+      if (selected === history.length - 1 || history.length === 0) {
+
+        if (!result.done) {
+          history.push(result.value);
+        }
+
+        selected = history.length - 1;
+      } else {
+        selected++;
+      }
+
+      showProducts(history[selected]);
+
+      renderLoadMore(result.done);
+      renderLoadLess();
+    }
+
+    function loadLess(btn) {
+      selected--;
+      showProducts(history[selected]);
+
+      renderLoadLess();
+      renderLoadMore();
+    }
+
+    function renderLoadMore(isDone = false) {
+      const btnLoadMore = document.getElementById("loadMore");
+
+      if ((selected === history.length - 1) && isDone) {
+        btnLoadMore.disabled = true;
+      } else {
+        btnLoadMore.disabled = false;
+      }
+    }
+    
+    function renderLoadLess() {
+      const btnLoadLess = document.getElementById("loadLess");
+
+      if (selected === 0) {
+        btnLoadLess.disabled = true;
+      } else {
+        btnLoadLess.disabled = false;
+      }
+    }
+
+    // Init
+    loadMore();
+  </script>
+</html>

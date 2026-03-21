@@ -1,0 +1,21 @@
+// function countSheeps(array) {
+//   let sheeps = array.reduce(
+//     (acc, current) => (current === true ? acc + 1 : acc),
+//     0
+//   );
+//   return `The Number Of Sheeps is ${sheeps}`;
+// }
+
+// function countSheeps(array) {
+//   return array.reduce((acc, current) => (current === true ? acc + 1 : acc), 0);
+// }
+
+function countSheeps(array) {
+  let counter = 0;
+  array.forEach((ele) => {
+    if (ele === true) counter++;
+  });
+  return `The Number Of Sheeps is ${counter}`;
+}
+
+console.log(countSheeps([true, true, true, true, false, true, false, true]));

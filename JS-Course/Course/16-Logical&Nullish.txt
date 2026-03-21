@@ -1,0 +1,29 @@
+  Logical Or || (
+    - NUll
+    - Undefined
+    - Any Falsy Value
+
+    How to know The Falsy Value?
+      We use The Constructor Boolean
+      EX: 
+        console.log(Boolean(100)); // true
+        console.log(Boolean(-100)); // true
+        console.log(Boolean(0)); // false
+        console.log(Boolean("")); // false
+    
+    EX:
+      console.log(`The price is ${price || 200}`); // 200 if price = null
+      console.log(`The price is ${price || 200}`); // 200 if price = Undefined
+      console.log(`The price is ${price || 200}`); // 200 if price = 0
+      console.log(`The price is ${price || 200}`); // 200 if price = ""
+
+  )
+
+  Nullish Coalescing Operator ?? (
+    - Null
+    - Undefined
+
+    Ex:
+      let price = 0;
+      console.log(`The price is ${price ?? 200}`); // 0
+  )

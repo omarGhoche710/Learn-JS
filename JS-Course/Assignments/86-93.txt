@@ -1,0 +1,163 @@
+1)
+
+<div id="elzero" class="element" name="js">JavaScript</div>
+
+// let myElement = document.querySelector("div");
+// let myElement = document.querySelector("[id = 'elzero']");
+// let myElement = document.querySelector("[class = 'element']");
+// let myElement = document.querySelector("[name = 'js']");
+
+// let myElement = document.querySelectorAll("div")[0];
+// let myElement = document.querySelectorAll("[id = 'elzero']")[0];
+// let myElement = document.querySelectorAll("[class = 'element']")[0];
+// let myElement = document.querySelectorAll("[name = 'js']")[0];
+
+// let myElement = document.getElementById('elzero');
+// let myElement = document.getElementsByClassName('element')[0];
+// let myElement = document.getElementsByTagName("div")[0];
+// let myElement = document.getElementsByName("js")[0];
+
+// let myElement = document.body.children[0];
+// let myElement = document.body.firstElementChild;
+
+
+------------------------------
+2)
+    <div>
+      <img decoding="async" src="#" alt="" />
+    </div>
+    <div>
+      <img decoding="async" src="#" alt="" />
+    </div>
+    <div>
+      <img decoding="async" src="#" alt="" />
+    </div>
+    <div>
+      <img decoding="async" src="#" alt="" />
+    </div>
+    <div>
+      <img decoding="async" src="#" alt="" />
+    </div>
+    <div>
+      <img decoding="async" src="#" alt="" />
+    </div>
+    <div>
+      <img decoding="async" src="#" alt="" />
+    </div>
+    <div>
+      <img decoding="async" src="#" alt="" />
+    </div>
+    <div>
+      <img decoding="async" src="#" alt="" />
+    </div>
+    <div>
+      <img decoding="async" src="#" alt="" />
+    </div>
+
+let myImages = document.querySelectorAll("[decoding = 'async']");
+
+myImages.forEach(function (ele) {
+  ele.src = "/images/1.jpg";
+  ele.alt = "Elzero Logo";
+  ele.style.width = "100px";
+});
+----------------------------------
+3)
+
+    <form action="">
+      <input type="number" name="dollar" placeholder="USD Dollar" />
+      <div class="result">{0} USD Dollar = {0} Egyptian Pound</div>
+    </form>
+
+let myInput = document.querySelector("[name = 'dollar']");
+let result = document.querySelector("[class = 'result']");
+
+myInput.onkeyup = function() {
+  result.innerHTML = `{${this.value}} USD Dollar = {${(this.value * 15.6).toFixed(2)}} Egyptian Pound`;
+}
+
+myInput.onchange = function() {
+  result.innerHTML = `{${this.value}} USD Dollar = {${(this.value * 15.6).toFixed(2)}} Egyptian Pound`;
+}
+
+------------------------------------------
+4)
+<div class="one" title="two">Two</div>
+<div class="two" title="one">One</div>
+
+let tmp;
+let one = document.getElementsByClassName("one")[0];
+let two = document.getElementsByClassName("two")[0];
+
+tmp = one.innerHTML;
+one.innerHTML = two.innerHTML;
+two.innerHTML = `${tmp} 2`;
+
+one.title = one.getAttribute("class");
+two.title = two.getAttribute("class");
+
+---------------------------------------------
+
+5)
+<img decoding="async" src="#" alt="One" />
+<img decoding="async" src="#" />
+<img decoding="async" src="#" alt="Three" />
+<img decoding="async" src="#" />
+<img decoding="async" src="#" />
+
+let myImages = document.querySelectorAll("img");
+
+myImages.forEach(function(ele) {
+  if (ele.hasAttribute("alt")) {
+    ele.setAttribute("alt", "old");
+  } else {
+    ele.setAttribute("alt", "Elzero New");
+  }
+});
+
+-------------------------------------------
+6)
+
+    <form action="">
+      <input
+        type="number"
+        name="elements"
+        class="input"
+        placeholder="Number Of Elements"
+      />
+      <input
+        type="text"
+        name="texts"
+        class="input"
+        placeholder="Elements Text"
+      />
+      <select name="type" class="input">
+        <option value="Div">Div</option>
+        <option value="Section">Section</option>
+      </select>
+      <input type="submit" name="create" value="Create" class="input" />
+      <div class="results"></div>
+    </form>
+
+document.forms[0].onsubmit = function (e) {
+  let n = document.querySelector("[name = 'elements']");
+  let text = document.querySelector("[name = 'texts']");
+  let type = document.querySelector("[name = 'type']");
+  let result = document.querySelector("[class = 'results']");
+
+  result.innerHTML = "";
+  
+  for (let i = 1; i <= n.value; i++) {
+    let myElement = document.createElement(type.value);
+    let myText = document.createTextNode(text.value);
+    
+    myElement.className = "box";
+    myElement.title = "Element";
+    myElement.id = `id-${i}`;
+    
+    myElement.appendChild(myText);
+    
+    result.appendChild(myElement);
+  }
+  e.preventDefault();
+};

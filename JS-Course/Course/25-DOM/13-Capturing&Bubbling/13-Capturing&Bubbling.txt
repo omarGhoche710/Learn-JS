@@ -1,0 +1,61 @@
+/*
+  Capturing & Bubbling:
+
+      // Capturing
+      // parent.addEventListener("click", () => {
+      //   console.log("Parent - capturing");
+      // }, true); // 👈 true = capturing
+
+      // child.addEventListener("click", () => {
+      //   console.log("Child - capturing");
+      // });
+
+      // Output: if (child.cliked) => Parent - capturing \n Child - capturing
+
+      //------------------------------------------------
+
+      // Bubbling
+      // parent.addEventListener("click", () => {
+      //   console.log("Parent - bubbling");
+      // });
+
+      // child.addEventListener("click", () => {
+      //   console.log("Child - bubbling");
+      // }); 
+
+      //  Output: if (child.cliked) => Child - bubbling \n Parent - bubbling
+
+      // -------------------------------------
+
+      // 🚫 Stop bubbling or capturing
+      // parent.addEventListener("click", () => {
+      //   console.log("Parent - bubbling");
+      // });
+
+      // child.addEventListener("click", (e) => {
+      //   e.stopPropagation();
+      //   console.log("Child - bubbling");
+      // });
+
+      // The best using to put a function in many buttons
+      document.getElementById('list').addEventListener('click', function(e) {
+        if (e.target.tagName === 'BUTTON') {
+          console.log('This is Button');
+        }
+      }); 
+*/
+
+-------------------------------
+--- target and currentTarget ---
+document.getElementById('box').addEventListener('click', (e) => {
+  console.log(e.target.id);
+  console.log(e.currentTarget.id);
+});
+
+e.target → "label" — the element that was actually clicked
+e.currentTarget → "box" — the element the listener is attached to
+
+A good way to remember the difference:
+
+target — where the event originated
+currentTarget — where the event is being handled

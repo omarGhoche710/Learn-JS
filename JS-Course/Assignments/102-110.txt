@@ -1,0 +1,80 @@
+1)
+
+let range = prompt("Print Number From – To", "5-20")
+  .split("-")
+  .map((ele) => Number(ele))
+  .sort((a, b) => a - b);
+
+let start = range[0];
+let finish = range[1];
+
+console.log("//", start, finish);
+
+for (let i = start; i <= finish; i++) {
+  console.log(i);
+}
+
+
+------------------------------------------------
+2)
+
+function popUp() {
+  let myDiv = document.createElement("div");
+  let myHeader = document.createElement("h1");
+  let myP = document.createElement("p");
+  let btn = document.createElement("button");
+
+  myDiv.style.cssText =
+    "background-color: #eee; display: flex; justify-content: center; align-items: center; flex-direction: column; padding: 10px; width: 500px; position: relative; position: absolute; left: 50%; top: 10%; transform: translate(-50%, -10%)";
+  btn.style.cssText =
+    "position: absolute; top: -15px; right: -15px; background-color: red; color: white; font-weight: bold; width: 30px; height: 30px; line-height: 1.5; border-radius: 50%; border: none; cursor: pointer;";
+  btn.className = "close";
+  btn.innerHTML = "X";
+
+  myHeader.innerHTML = "Welcome";
+  myP.innerHTML = "Welcome To Elzero Web School";
+
+  myHeader.style.margin = "10px 0";
+  myP.style.margin = "10px 0";
+
+  myDiv.append(myHeader);
+  myDiv.append(myP);
+  myDiv.append(btn);
+
+  document.body.appendChild(myDiv);
+}
+
+document.addEventListener("click", function (e) {
+  if (e.target.classList.contains("close")) {
+    e.target.parentElement.remove();
+  }
+});
+
+setTimeout(popUp, 5000);
+
+-----------------------------------------
+4)
+
+let myDiv = document.querySelector('div');
+
+setInterval(() => {
+  let id = myDiv.innerHTML -= 1;
+
+  if (myDiv.innerHTML === '0') {
+    window.location.href = "https://elzero.org";
+  }
+}, 1000);
+
+--------------------------------------
+
+5)
+
+let myDiv = document.querySelector('div');
+
+setInterval(() => {
+  let id = myDiv.innerHTML -= 1;
+
+  if (myDiv.innerHTML === '4') {
+    window.open('https://elzero.org', "", "width = 200, height = 200, top = 0, left: 0");
+  }
+}, 1000);

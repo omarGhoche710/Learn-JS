@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="items">
+    <div class="item" tabindex="0" id="div1" onclick="total('one', 'div1', 0)">
+      <span id="one">78.67</span>
+    </div>
+    <div class="item" tabindex="0" id="div2" onclick="total('two', 'div2', 1)">
+      <span id="two">80.9</span>
+    </div>
+    <div class="item" tabindex="0" id="div3" onclick="total('three', 'div3', 2)">
+      <span id="three">50.88</span>
+    </div>
+    <div class="item" tabindex="0" id="div4" onclick="total('four', 'div4', 3)">
+      <span id="four">67.99</span>
+    </div>
+  </div>
+  <button id="display">Display</button>
+  <div id="result"></div>
+  <script src="js/main.js"></script>
+</body>
+</html>
+
+CSS:
+    .item {
+      margin-bottom: 10px;
+      width: 50px;
+      padding: 10px;
+      background-color: #ddd;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .item span {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .click {
+      background-color: #aaa;
+    }
+
+JS:
+    let btn = document.getElementById("display");
+    let amount = 0;
+    let nb = [0, 0, 0, 0];
+
+    function total(val, btn, index) {
+      let value = parseFloat(document.getElementById(val).textContent);
+      let button = document.getElementById(btn);
+      if(nb[index] % 2 == 0) {
+        amount += value;
+      }else {
+        amount -= value;
+        console.log(`index[${index}]: ${nb[index]}`);
+      }
+      nb[index]++;
+
+      button.classList.toggle('click');
+    }
+
+    btn.addEventListener("click", ()=>{
+      // let result = `Your amount is ${amount.toFixed(2)}`;
+      let result = `Your amount is ${Math.round(amount)}`;
+      document.getElementById("result").innerHTML = result;
+    });

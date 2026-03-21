@@ -1,0 +1,24 @@
+// change the number To String
+// Split The String to an array
+// Change The Strings in the Array to Numbers
+// Reverse the Array
+
+function convertGivenNumberToArrayReverse(number) {
+  // Time: 724
+  // return number
+  //   .toString()
+  //   .split("")
+  //   .map((ele) => parseInt(ele)) // Number(ele)
+  //   .reverse()
+  // Time: 859ms
+  if (n === 0) return [0];
+  let arr = [];
+  let myNumber = n;
+  while (myNumber > 0) {
+    arr.push(myNumber % 10);
+    myNumber = Math.floor(myNumber / 10);
+  }
+  return arr;
+}
+
+console.log(convertGivenNumberToArrayReverse(1290823));

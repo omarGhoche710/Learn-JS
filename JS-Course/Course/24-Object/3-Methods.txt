@@ -1,0 +1,172 @@
+/*
+  call() Method(
+    With the call() method, you can write
+    a method that can be used on different objects.
+    EX1:
+      const person = {
+        fullName: function() {
+          return `${this.firstName} ${this.lastName}`;
+        },
+      };
+
+      const person1 = {
+        firstName: "Omar",
+        lastName: "Ghoch",
+      };
+
+      const person2 = {
+        firstName: "Ahmad",
+        lastName: "Damaj",
+      };
+
+      // Now I Want use the Function fullName on the two Objects
+      console.log(person.fullName.call(person1));
+      console.log(person.fullName.call(person2));
+
+    Ex2:
+    const person = {
+      fullName: function (city, country) {
+        return `${this.firstName} ${this.lastName}, ${city}, ${country}`;
+      },
+    };
+
+    const person1 = {
+      firstName: "Omar",
+      lastName: "Ghoch",
+    };
+
+    console.log(person.fullName.call(person1, 'Barja', 'Lebanon'));
+  )
+*/
+
+EX:
+let r = {
+  setText() {
+    this.div.innerHTML = this.text
+  },
+  show() {
+    document.body.append(this.div);
+  }
+}
+
+let div1 = {
+  div: document.createElement('div'),
+  text: 'Hello div1'
+}
+
+let div2 = {
+  div: document.createElement('div'),
+  text: 'Hello div2'
+}
+
+r.setText.call(div1);
+r.show.call(div1);
+r.setText.call(div2);
+r.show.call(div2);
+
+---------------------------------------------------------------
+/*
+  Apply Method(
+    - The apply() method is similar to the call() method (previous chapter).
+  )
+  EX1:
+    const person = {
+      fullName: function(city, country) {
+        return this.firstName + " " + this.lastName + ", " + city + ", " + country;
+      }
+    }
+    const person1 = {
+      firstName:"John",
+      lastName: "Doe"
+    }
+    console.log(person.fullName.apply(person1, ["Barja", "Lebanon"]));
+
+    EX2:
+      console.log(Math.max.apply(null, [0, 1, 9])); // 9
+      console.log(Math.max.apply(" ", [0, 1, 9])); // 9
+      console.log(Math.max.apply(0, [0, 1, 9])); // 9
+      // The first argument (null) does not matter. It is not used in this example.
+      // These examples will give the same result:
+*/
+
+---------------------------------------------------------------------------
+/*
+  The Difference Between call() and apply():
+    The call() method takes arguments separately.
+    The apply() method takes arguments as an array.
+*/
+--------------------------------------------------------------------------
+/* Bind Method(
+  - The bind() method creates a new function that,
+  - when called, has its this keyword set to the provided value,
+  - with a given sequence of arguments preceding any provided when the new function is called.
+  EX:
+        const charOne = {
+          name: "mostata",
+          health: 90,
+          fullHealth(num1, num2) {
+            return this.health = num1 + num2;
+          },
+        };
+
+        const charTwo = {
+          name: "mostata",
+          health: 70,
+        };
+
+        // console.log(charTwo.health);
+        // charOne.fullHealth.bind(charTwo, 60, 50); // Nothing happen because bind return a function
+        // console.log(charTwo.health);
+
+        console.log(charTwo.health);
+        const binFunc = charOne.fullHealth.bind(charTwo, 60, 50); // We also put the parameters like call
+        binFunc(); // Now We call the function
+        console.log(charTwo.health);
+)
+*/
+
+EX:
+
+let r = {
+  setText() {
+    this.div.innerHTML = this.text
+  },
+  show() {
+    document.body.append(this.div);
+  }
+}
+
+let div1 = {
+  div: document.createElement('div'),
+  text: 'Hello div1'
+}
+
+let div2 = {
+  div: document.createElement('div'),
+  text: 'Hello div2'
+}
+
+div1.setText = r.setText.bind(div1);
+div1.show = r.show.bind(div1);
+
+div1.setText();
+div1.show();
+--------------------------------
+--- BEST PRACTICE ----
+
+function makeDiv(text) {
+  return {
+    div: document.createElement("div"),
+    text: text,
+    setText: function() {
+      this.div.textContent = this.text;
+    },
+    append: function() {
+      document.body.append(this.div);
+    }
+  }
+}
+
+div1 = makeDiv("Hello Div1");
+div1.setText();
+div1.append();  

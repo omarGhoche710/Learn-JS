@@ -1,0 +1,105 @@
+/*
+  DOM [Add Event Listener]
+  - addEventListener
+  - Use Without On
+  - Attach Multiple Events
+  - Error Test
+
+  Search
+  - Capture & Bubbling JavaScript
+  - removeEventListener
+
+
+  let myP = document.querySelector(".my-p");
+
+  myP.onclick = one;
+  myP.onclick = two; // this will override the first one
+
+  function one() {
+    console.log("Message 1");
+  }
+  function two() {
+    console.log("Message 2");
+  }
+
+  window.onload = 'string'; // No error
+
+  myP.addEventListener('click', one);
+  myP.addEventListener('click', two);// the two will work
+  myP.addEventListener('click', 'string'); // Error
+
+      EX1:
+      let i = 0;
+
+      myP.addEventListener('click', function() {
+        let myNewP = myP.cloneNode(true);
+        myNewP.id = `${myP.id}-${i}`;
+
+        myNewP.addEventListener('click', function() {
+          console.log("Clone Paragraph")
+        });
+
+        myP.after(myNewP);
+        i++;
+      })
+
+      // Ex2
+
+      myP.onclick = function () {
+        let newP = myP.cloneNode(true);
+        newP.className = "clone";
+        document.body.appendChild(newP);
+      };
+
+      document.querySelector('.clone').onclick = function() {
+        console.log("I am cloned");
+        // Cannot set properties of null (setting 'onclick')
+      }
+
+      // the solution
+      document.addEventListener("click", function (e) {
+        if (e.target.className === "clone") {
+          console.log("I am clone");
+        }
+      });
+
+      // Use this Method is more professional
+      document.addEventListener("click", (e) => {
+        const el = e.target;
+
+        if (el.dataset.role === "clone") {
+          console.log("I am clone");
+          return;
+        }
+
+        if (el.classList.contains("content")) {
+          // ...
+          return;
+        } // contains is better than className
+
+        if (el.classList.contains("cancel")) {
+          // ...
+          return;
+        }
+
+        if (el.classList.contains("key")) {
+          // ...
+          return;
+        }
+      });
+
+*/
+
+-------------------------------------------------------------------
+
+/*
+  RemoveEventListnner
+
+  EX:
+    function handleClick() {
+        console.log('clicked');
+    }
+
+    document.querySelector("button").addEventListener('click', handleClick);
+    document.querySelector("button").removeEventListener('click', handleClick); // the same
+*/

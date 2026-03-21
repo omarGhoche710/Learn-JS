@@ -1,0 +1,40 @@
+EX: Function Create Counter
+
+function createCounter() {
+    let count = 0;
+    return function () {
+        count++;
+        return count;
+    };
+}
+
+let counter = createCounter();
+console.log(counter()); // 1
+console.log(counter()); // 2
+
+------------------
+EX:
+
+function multiply(x) {
+    return function (y) {
+        return x * y;
+    };
+}
+
+let double = multiply(2);
+console.log(double(5)); // 10
+
+-----------------------
+
+EX:
+function createIncrementer() {
+    let count = 0;
+    return function () {
+        count++;
+        console.log(count);
+    };
+}
+
+let increment = createIncrementer();
+increment(); // 1
+increment(); // 2

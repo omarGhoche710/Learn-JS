@@ -1,0 +1,92 @@
+1)
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Learn JavaScript</title>
+    <script>
+      // Error
+      document.getElementById("el").style.color = "red";
+    </script>
+    <script>
+      // Run
+      window.onload = function () {
+        document.getElementById("el").style.color = "red";
+      };
+    </script>
+  </head>
+  <body>
+    <h1 id="el">Page Title</h1>
+    <script>
+      // Run
+      document.getElementById("el").style.color = "red";
+    </script>
+  </body>
+</html>
+--------------------------------------------------
+
+2)
+<h1>Elzero</h1>
+
+document.querySelector("h1").style.color = "blue";
+document.querySelector("h1").style.fontSize = "80px";
+document.querySelector("h1").style.fontWeight = "bold";
+document.querySelector("h1").style.textAlign = "center";
+document.querySelector("h1").style.fontFamily = "Arial";
+
+--------------------------------------------------------
+
+3)
+console.log("%cElzero %cWeb %cSchool", 
+            `font-size: 40px; color: red`,
+            `font-size: 40px; color: green; font-weight: bold`,
+            `font-size: 40px; color: blue`
+);
+
+
+------------------------------------------------------------
+
+4)
+
+console.group("Group 1");
+console.log("Message One");
+console.log("Message Two");
+console.group("Child Group");
+console.log("Message One");
+console.log("Message Two");
+console.group("Grand Child Group");
+console.log("Message One");
+console.log("Message Two");
+console.groupEnd();
+console.groupEnd();
+console.groupEnd();
+console.group("Group 2");
+console.log("Message One");
+console.log("Message Two");
+
+------------------------------------------------------------------
+
+5) 
+
+// table OF Array
+console.table(["Elzero", "Ahmed", "Sameh", "Gamal", "Aya"]);
+
+// table OF Array OF Objects
+let students = [
+  {name: "Omar", age: 20},
+  {name: "Hamza", age: 22},
+  {name: "Saleh", age: 25},
+];
+console.table(students);
+
+// table OF Objects
+let student = {
+  name: "Omar",
+  age: 20,
+  country: "Lebanon"
+};
+console.table(student);
+
+-------------------------------------------------------------

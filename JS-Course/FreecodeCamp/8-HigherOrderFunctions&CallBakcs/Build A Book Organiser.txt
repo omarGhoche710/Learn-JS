@@ -1,0 +1,33 @@
+let books = [
+  {
+    title: "Avenger",
+    authorName: "Joe",
+    releaseYear: 2002,
+  },
+  {
+    title: "Mortal Combos",
+    authorName: "David",
+    releaseYear: 1897,
+  },
+  {
+    title: "Assessin Crud",
+    authorName: "Moe",
+    releaseYear: 2007,
+  },
+];
+
+function sortByYear(firstBook, secondBook) {  
+  const yearOfFirstBook = firstBook.releaseYear;
+  const yearOfSecondBook = secondBook.releaseYear;
+
+  return yearOfFirstBook <  yearOfSecondBook ? -1 : yearOfFirstBook > yearOfSecondBook ?
+  1 : 0;
+}
+
+const filteredBooks = books.filter((book) => book.releaseYear <= 1950);
+
+filteredBooks.sort(sortByYear);
+
+
+
+

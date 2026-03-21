@@ -1,0 +1,163 @@
+/*
+  Scope (
+    - Global And Local Scope
+  )
+  EX:
+    var a = 1;
+    let b = 2;
+    // If we delete these variables
+    // we can't access them from the Function
+
+    function showText() {
+      var a = 10;
+      let b = 20;
+      console.log(`Function - From Local ${a}`);
+      console.log(`Function - From Local ${b}`);
+      // main.js:1368 Uncaught ReferenceError: Cannot access 'b' before initialization
+      // at showText
+      // Because The Function find the nearst variables declared
+      // If these variables exists but after the calling, an error
+      // message will be t
+    }
+
+    console.log(`From Global ${a}`);
+    console.log(`From Global ${b}`);
+
+    showText();
+
+  EX 2:
+    var a = 1;
+    let b = 2;
+    // If we delete these variables
+    // we can't access them from the Function
+
+    function showText() {
+      a = 10;
+      b = 20;
+      console.log(`Function - From Local ${a}`);
+      console.log(`Function - From Local ${b}`);
+      // If we reassign the globl value it will reassigned
+    }
+
+    showText();
+    console.log(`From Global ${a}`); // 10
+    console.log(`From Global ${b}`); // 20
+
+    Ex:
+      
+*/
+
+/* 
+  Scope (
+    - Block Scope [IF, Switch, For]
+  )
+
+/// Case 1
+// var x = 10;
+
+// if (10 === 10) {
+//   var x = 50;
+// }
+// console.log(x); // 50 Because the Var Is Not A BLock Scope
+
+/// Case 2
+// let x = 10;
+
+// if (10 === 10) {
+//   var x = 50; // Cannot redeclare block-scoped variable 'x
+// }// [Illegal Shadowing]
+// console.log(x);
+
+/// Case 3
+// var x = 10;
+
+// if (10 === 10) {
+//   let x = 50; 
+//   console.log(`From If Scope: ${x}`); // 50
+// }
+// console.log(`From Global: ${x}`); // 10 Because the Let is A Global Scope
+
+/// Case 4
+// var x = 10;
+
+// if (10 === 10) {
+//   console.log(`From If Scope: ${x}`); // 10
+// }
+// console.log(`From Global: ${x}`); // 10 Because the Let is A Global Scope
+
+/// Case 5
+// var x = 10;
+
+// if (10 === 10) {
+//   console.log(`From If Scope: ${x}`); //  Cannot access 'x' before initialization
+//   let x = 50;
+// }
+// console.log(`From Global: ${x}`); // 10 Because the Let is A Global Scope
+
+/// Case 6
+// var x = 10;
+
+// if (10 === 10) {
+//   console.log(`From If Scope: ${x}`); // 10
+//   var x = 50;
+// }
+// console.log(`From Global: ${x}`); // 50
+*/
+
+/*
+  Scope(
+    - Lexcical Scope
+  )
+
+  Search (
+    - Execution Context
+    - Lexical Environment
+  )
+  EX:
+    function parent() {
+      let a = 10;
+
+      function child() {
+        console.log(a);
+        console.log(`From Child: ${b}`);// main.js:1477 Uncaught ReferenceError: b is not defined
+
+        function grand() {
+          let b = 100;
+          console.log(`From Grand: ${a}`);
+          console.log(`From Grand: ${b}`);
+        }
+        grand();
+      }
+      child();
+    }
+
+    parent();
+*/
+
+//---------------------------
+/*
+  EX OF Block And Function Scope:
+      // let a = 10;
+
+      // function x() {
+      //   var a = 20; // No Error
+      //   console.log(a);
+      // }
+
+      // let a = 10;
+
+      // {
+      //   var a =20; // Error
+      // }
+
+      const a = 20;
+      {
+        const a = 100;
+        console.log(a);
+        {
+          const a = 200;
+          console.log(a);
+        }
+      }
+      console.log(a); 
+*/

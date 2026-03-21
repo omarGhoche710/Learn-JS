@@ -1,0 +1,231 @@
+1)
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learn JavaScript</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // let myLinks = document.links; // Error myLinks is not an Array
+        // it is an HTML Collection (just we can access the elements and length)
+        let myLinks = document.querySelectorAll('a');
+        myLinks.forEach(function (element) {
+          if (element.classList.contains('open') && element.textContent === 'Elzero') {
+            // element.click();
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <a class="open" href="https://google.com">Google</a>
+    <a class="open" href="https://elzero.org">Elzero</a>
+    <a class="not" href="https://facebook.com">Facebook</a>
+    <a class="linked" href="https://linkedin.com">Elzero</a>
+    <script src="js/main.js"></script>
+  </body>
+</html>
+--------------------------------------------------
+
+2)
+
+    <div class="container">
+      <div class="input">
+        <input type="text" id="add" />
+        <input type="text" id="remove" />
+      </div>
+      <div>Current Element</div>
+      <div>
+        <h5>Current Element Class Lists</h5>
+        <div id="result"></div>
+      </div>
+      <div class="errors hidden"></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script
+    
+----------
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+  padding: 20px;
+  width: 500px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.container h5 {
+  margin: 0;
+}
+
+.container .input {
+  display: flex;
+  gap: 5px;
+}
+
+.container .input input {
+  width: 50%;
+  padding: 10px;
+}
+
+.container div:not(.input) {
+  padding: 15px;
+  background-color: #eee;
+}
+
+.container div:nth-child(2) {
+  text-align: center;
+}
+
+.container #result {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 5px 5px;
+}
+
+.container .errors {
+  color: red;
+}
+
+.hidden {
+  display: none;
+}
+
+-----------
+function addClass(array) {
+  let spans = document.querySelectorAll("#result span");
+  let result = document.getElementById("result");
+  if (spans.length === 0) {
+    result.innerHTML = "";
+  }
+
+  array.forEach((element) => {
+    let span = document.createElement("span");
+
+    span.textContent = element;
+    span.className = element;
+    span.style.cssText =
+      "padding: 10px; background-color: #ff9800; color: white; border-radius: 3px;";
+
+    result.appendChild(span);
+  });
+}
+
+function removeClass(array) {
+  array.forEach((element) => {
+    let spans = document.getElementsByClassName(element);
+    spans = Array.from(spans);
+    if (spans.length !== 0) {
+      spans.forEach((ele) => ele.remove());
+    } else {
+      // Swal.fire({
+      //   title: "Error!",
+      //   text: `The Class ${element} Is Not Found`,
+      //   icon: "error",
+      //   confirmButtonText: "Ok",
+      // });
+      document.querySelector(".errors").classList.remove("hidden");
+      document.querySelector(".errors").innerHTML +=
+        `Class ${element} is not Found<br>`;
+    }
+  });
+  let result = document.querySelector("#result");
+  if (result.innerHTML === "") {
+    result.innerHTML = "No Classes To Show";
+  }
+}
+
+let inputAdd = document.getElementById("add");
+let inputRemove = document.getElementById("remove");
+
+inputAdd.addEventListener("blur", function () {
+  if (this.value === "") {
+    Swal.fire({
+      title: "Error!",
+      text: "Please Enter Class",
+      icon: "error",
+      confirmButtonText: "Ok",
+    });
+  } else {
+    document.querySelector(".errors").innerHTML = "";
+    document.querySelector(".errors").classList.add("hidden");
+    let classes = this.value.split(" ");
+    addClass(classes);
+    this.value = "";
+  }
+});
+
+inputRemove.addEventListener("blur", function () {
+  if (this.value === "") {
+    Swal.fire({
+      title: "Error!",
+      text: "Please Enter Class",
+      icon: "error",
+      confirmButtonText: "Ok",
+    });
+  } else {
+    document.querySelector(".errors").innerHTML = "";
+    document.querySelector(".errors").classList.add("hidden");
+    let classes = this.value.split(" ");
+    removeClass(classes);
+  }
+});
+
+---------------------------------------------------------
+3)
+
+    <div class="our-element">Our Element</div>
+    <p>Paragraph</p>
+
+document.querySelector('p').remove();
+let our_element = document.getElementsByClassName('our-element')[0];
+
+let start = document.createElement('div');
+let end = document.createElement('div');
+
+
+start.title = 'Start Element';
+end.title = 'End Element';
+
+start.dataset.value = "Start";
+end.dataset.value = "End";
+
+start.innerHTML = "Start";
+end.innerHTML = "End";
+
+our_element.before(start);
+our_element.after(end);
+
+--------------------------------
+4)
+
+    <div>
+      <span>Hello</span>
+      <!-- We Need The Next Text Without Spaces -->
+      Elzero
+    </div>
+
+let myDiv = document.querySelector('div');
+console.log(myDiv.lastChild.textContent.trim());
+
+-------------------------------------------
+5)
+    <div>Element</div>
+    <span>Element</span>
+    <p>Element</p>
+    <article>Element</article>
+    <section>Element</section>
+
+document.addEventListener('click', function(e) {
+  let myElement = e.target.tagName;
+
+  console.log(myElement);
+});

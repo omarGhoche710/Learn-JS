@@ -1,0 +1,72 @@
+/*
+  DOM [Check Attributes]
+  - Element.attributes
+  - Element.hasAttribute
+  - Element.hasAttributes
+  - Element.removeAttribute
+
+  EX:
+    <div>Div</div>
+    <p class="para" title="Paragraph" data-src="yy">Paragraph</p>
+    -----------------------------------------------------------
+    console.log(document.getElementsByTagName("p")[0].attributes);
+
+    let myP = document.getElementsByTagName("p")[0];
+
+    // if (myP.hasAttribute("data-src")) {
+    //   console.log("Found");
+    //   if (myP.getAttribute("data-src") === "") {
+    //     console.log("Found And Empty");
+
+    //     myP.dataset.src = "Elzero";
+    //   }
+    // } else {
+    //   console.log("Not Found");
+    //   myP.setAttribute("data-src", "Elzero");
+    // }
+
+    if (myP.hasAttribute("data-src")) {
+      if (myP.getAttribute("data-src") === "") {
+        myP.removeAttribute("data-src");
+      } else {
+        myP.setAttribute("data-src", "New value");
+      }
+    } else {
+      console.log("Not Found");
+    }
+
+    let myDiv = document.getElementsByTagName("div")[0];
+    console.log(myDiv);
+    if (myDiv.hasAttributes()) {
+      console.log("Has Attributes");
+    } else {
+      console.log("Has No Attributes");
+    }
+*/
+
+----------------------------------------
+Big EX:
+
+let card = document.querySelector('.card');
+let btn = document.querySelector('.buy-btn');
+
+document.querySelector('.title').textContent = "Laptop HP";
+document.querySelector('.desc').innerHTML = "<strong>Powerful</strong> laptop for developers";
+btn.disabled = true;
+btn.setAttribute('data-status', 'sold');
+
+console.log(card.dataset.id);
+
+if (btn.disabled) {
+  console.log('Button is disabled');
+}
+
+if (card.hasAttributes()) {
+  console.log('Card has attributes');
+}
+
+btn.removeAttribute('disabled');
+
+  for (let i = 0; i < card.attributes.length; i++) {
+    console.log(`${card.attributes[i].name} => ${card.attributes[i].value}`)
+  }

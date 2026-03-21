@@ -1,0 +1,11 @@
+function sumOfPositive(arr) {
+  // let somme = 0;
+  // for(let i = 0; i < arr.length; i++) {
+  //   if (arr[i] < 0) continue;
+  //   somme += arr[i];
+  // }
+  // return somme;
+  return arr.filter((ele) => ele > 0).reduce((acc, current) => acc + current, 0);
+}
+let array = [2, 3, -3, 5, -8];
+console.log(sumOfPositive(array));

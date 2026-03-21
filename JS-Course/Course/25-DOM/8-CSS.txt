@@ -1,0 +1,73 @@
+/*
+  DOM [CSS]
+  - style
+  - cssText
+  - removeProperty(propertyName) [Inline, Stylesheet]
+  - setProperty(propertyName, value, priority)
+
+  EX:
+  <div id="my-div">Elzero Web shcool</div>
+
+      let element = document.getElementById("my-div");
+
+      element.style.color = "red";
+      element.style.fontWeight = "bold";
+
+      element.style.cssText = "font-weight: bold; color: green; opacity: 0.9";
+
+      element.style.removeProperty("color");
+      element.style.setProperty("font-size", "40px", "important");
+
+      // rules => the code css
+      document.styleSheets[0].rules[0].style.removeProperty("line-height");
+      document.styleSheets[0].rules[0].style.setProperty("background", "red", "important");
+
+*/
+
+EX:
+
+      :root {
+        --bg-color: #ffffff;
+        --text-color: #000000;
+      }
+
+      .dark-mode {
+        --bg-color: #1a1a1a;
+        --text-color: #ffffff;
+      }
+
+      body {
+        background-color: var(--bg-color);
+        color: var(--text-color);
+      }
+    </style>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    We are Here
+    <button onclick="toggleDarkMode()">Change Mode</button>
+    <script src="js/main.js"></script>
+  </body>
+
+function toggleDarkMode() {
+  document.documentElement.classList.toggle('dark-mode');
+}
+
+-------------
+EX:
+ <div style="height: 20px; background-color: black; color: white;">omar</div>
+
+function highlightElement(element) {
+    // حفظ الأنماط الأصلية
+    const originalStyles = element.style.cssText;
+    
+    // تطبيق highlight
+    element.style.cssText += 'background: yellow; transition: all 0.3s;';
+    
+    // إزالة بعد 2 ثانية
+    setTimeout(() => {
+        element.style.cssText = originalStyles;
+    }, 5000);
+}
+
+highlightElement(document.querySelector('div'))

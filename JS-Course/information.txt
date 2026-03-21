@@ -1,0 +1,42 @@
+
+- JS is working on Client Side and Server Side
+- Task:
+    - Dynamically Update Content (Without refresh)
+    - Manipulating HYML And CSS
+    - Animate Images and Content And Create Image Gallery
+    - Manipulate And validate Data
+    - Control Multimedia [Audio, Video, Ets...]
+    - Web Browser Games
+    - Mobile Apps
+
+- Content:
+    - Core Language
+    - DOM
+    - BOM
+    - OOP
+    - ES6, ES7
+    - Practice
+
+- How To Study?
+    - Focus
+    - Always Search
+    - Ask How To Fix Not Fix
+    - Start Idea
+    - Check Lessons Code [courses/js-course]
+    - Website to make skills  [leet code, hackerRank, edabit, codeworse]
+
+- Console:
+    - Error
+    - Warning
+    - Try Function
+    - Write JS
+
+- There is Two Way to Put The file of JS:
+    - In the Header[We can use onload, that mean when 
+      the page have the Content the Java can see the Content].
+        Ex:
+            If we put The File js In the Header And We want to change
+            a style of an element in the body widthout using the onload
+            the JS can't see the Content
+            code Of Onload => window.onload = function(){}
+    - After the Content.

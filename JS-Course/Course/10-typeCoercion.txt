@@ -1,0 +1,25 @@
+  Type Coercion (Type Casting)
+  - +
+  - -
+  - "" - 2
+  - false - true
+  - ++/--
+
+  Ex:
+  let a = "10";
+  let b = 20;
+  let c = true;
+
+  console.log(a + b); // 1020 [because + will be concatention]
+  console.log(+a + b); // 30 [because + will be sum]
+  console.log(a - b); // -10 [because the 10 here will be a number by casting
+                              But If a = "jswxh" => NaN]
+  console.log("" - 2); // -2 [because +"" = 0, then by casting the "" will be 0 if the
+                              the operator is -]
+  console.log(false - true); // -1
+  console.log(b + c); // 21
+  console.log(a + b + c); // 1020true
+  console.log(+a + b + c); // 31
+
+  let a = "-10";
+  console.log(-(++a)); // 9 [automatic casting in ++a to number then negation -9]

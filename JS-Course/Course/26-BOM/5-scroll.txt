@@ -1,0 +1,46 @@
+/*
+  BOM [Browser Object Model]
+  - stop()
+  - print()
+  - focus()
+  - scrollTo(x, y || Options)
+  - scroll(x, y || Options)
+  - scrollBy(x, y || Options)
+
+  EX:
+      window.scrollTo(500, 500); // Begin from the Start
+      window.scrollBy(500, 500); // Begin from the current place
+
+      window.scrollBy({
+        left: 1500,
+        top: 1200,
+        behavior: "smooth"
+      });
+
+*/
+
+
+EX:
+
+/* 
+  Practice : [Browser Object Model]
+
+  EX:
+    let btn = document.querySelector("button");
+
+    window.addEventListener("scroll", function () {
+      if (this.scrollY >= 600) {
+        btn.style.display = "block";
+      } else {
+        btn.style.display = "none";
+      }
+    });
+
+    btn.addEventListener('click', function() {
+      window.scrollTo({
+        left: 0,
+        top: 0,
+        behavior: 'smooth'
+      })
+    })
+*/

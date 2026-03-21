@@ -1,0 +1,7 @@
+// Empty Array
+const filledArray = new Array(3);
+
+// Fill Array
+
+const filledArray = new Array(3).fill(0);
+console.log(filledArray); // [0, 0, 0]

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    Enter A Number (Range: 1-100)
+    <input type="number" id="num" min="1" max="100" />
+    <button id="btn">Confirm</button>
+    <script>
+      const range = {
+        min: 50,
+        max: 100,
+      };
+
+      const btn = document.getElementById("btn");
+      btn.addEventListener("click", function () {
+        var selected = 67;
+        var num = +document.getElementById("num").value;
+
+        if (!num) {
+          console.log("Please Enter Number");
+          return;
+        }
+
+        if (num < range.min || num > range.max) {
+          console.log("Out Of Range");
+          return;
+        }
+
+        var result =
+          selected > num ? "Higher" : selected < num ? "Lower" : "Found";
+        console.log(result);
+      });
+    </script>
+  </body>
+</html>

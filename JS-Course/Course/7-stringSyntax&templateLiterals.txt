@@ -1,0 +1,45 @@
+String Syntax And Character Escape Sequences (
+  \ : Escape(Ignore) + Line Continue
+  \n: new Line
+  \t: tab Space
+  \\: Backslash
+  \': Single Quote
+  \": Double Quote
+)
+*/
+
+/*
+  Concatenation (
+    let a = "We Love";
+    let b = "JavaScript";
+
+    document.write(a + " " + b);
+    document.write(a, b); => make concatenation with space
+  )
+*/
+
+/*
+  Template Literals (Template Strings) (
+    let a = "We Love";
+    let b = "JavaScript";
+    let c = "And";
+    let d = "Programming";
+    document.write(`${a} ${b} ${c} ${d}`);
+    - We can put "", '', \\ inside it
+
+    Example:
+      let title = "Elzero";
+      let desc = "Elzero Web Shcool";
+      let markUp = `
+        <div class="card">
+          <div class="child">
+            <h1>${title}</h1>
+            <p>${desc}</p>
+          </div>
+        </div>
+      `;
+      document.write(markUp.repeat(5));
+      repeat:
+        we can't make repeat for a number or undefined
+        or array
+  ) 

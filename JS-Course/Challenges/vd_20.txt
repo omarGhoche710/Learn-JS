@@ -1,0 +1,58 @@
+/*
+  Challenge 1
+*/
+
+let a = 10;
+let b = "20";
+let c = 80;
+
+console.log(++a + +b++ + +c++ - +a++); // 100
+// console.log(a); // 12
+console.log(++a + -b + +c++ - -a++ + +a); // 100
+// a = 14
+// b = 21
+// c = 82
+console.log(--c + +b + --a * +b++ - +b * a + --a - +true); // 100
+
+/*
+  [++a] [+] [+] [b++] [+] [+][c++] [-] [+] [a++]
+  [++a]
+  - Value: 11
+  - Explain: pre-increment
+  [+]
+  - Explain: plus
+  [+]
+  - Explain: Unary Plus
+  [b++]
+  - value: 20
+  - Explain: post-increment
+  [+]
+  - Explain: Addition
+  [+]
+  - Explain: Unary Plus
+  [c++]
+  - value: 80
+  - Explain: post-increment
+  [-]
+  - Explain: Subtraction
+  [+]
+  - Explain: Unary Plus
+  [a++]
+  - value: 11
+  - Explain: post-increment
+*/
+
+/*
+  Challenge 2
+*/
+
+let d = "-100";
+let e = "20";
+let f = 30;
+let g = true;
+
+// Only Use Variables Value
+// Do Not Use Variable Twice
+
+console.log(-d * e); // 2000
+console.log(-d + +e + f + true); // 173

@@ -1,0 +1,175 @@
+  Arrays (
+    - Definition: It's A Container That Can Hold More Than One Value
+    - Creation: (
+        - let myArray = [];
+        - let myArray = new Array();
+      )
+    - Accessing Elements: (
+        - let myArray = [10, 20, 30, 40, 50];
+        - myArray[0]; // 10
+    - Nested Arrays: (
+        - let myArray = [10, 20, [30, 40], 50];
+        - myArray[2][0]; // 30
+      )
+    - changing Elements: (
+        - let myArray = [10, 20, 30, 40, 50];
+        - myArray[0] = 100; // myArray is now [100, 20, 30, 40, 50]
+      )
+    - check For Array: (
+        - Array.isArray(myArray); // true
+      )
+
+  EX:
+    let myFriends = ["Ahmed", "Nabil", "Mohamed", ["karim", "Saleh"]];
+
+    console.log(`Hello ${myFriends[0]}`);
+    console.log(`Hello ${myFriends[2]}`);
+    console.log(`Hello ${myFriends[1][2]}`); // I want to get the third char of Nabil
+
+    console.log(`Hello ${myFriends[3][0][3]}`); // The fourth Element Of Karim
+
+    console.log(myFriends);
+    myFriends[0] = "Gamal";
+    // myFriends[3] = "Sameh";
+    myFriends[3] = ["omar", 'Oussama'];
+    console.log(myFriends);
+
+    console.log(Array.isArray(myFriends)); // true
+
+  Note:
+    The console take the reference of the array on each updating
+    for example if i put in the first console.log(array) and then
+    array[0] = value the console take the new array and print it
+  )
+*/
+
+/*
+  Arrays Methods (
+    - length
+
+        EX:
+          let myFriends = ["Ahmed", "Nabil", "Mohamed", "Karim"];
+
+          console.log(myFriends.length); // 4
+
+          // myFriends[6] = "Gamal"; // he will put 2 case empty then the new value
+
+          myFriends[myFriends.length - 1] = "Talal"; // Update the last Element
+          myFriends[myFriends.length] = "Gamal"; // New Element
+
+          myFriends.length = 3; // Make the length
+
+          console.log(myFriends);
+
+          // console.log(myFriends.length); // 7
+
+    - unshift() => Add New Element(s) To The Beginning Of The Array
+    - push() => Add New Element(s) To The End Of The Array
+    - shift() => Remove The First Element From The Array and return the element deleted
+    - pop() => Remove The Last Element From The Array 
+  
+      Ex:
+        let myFriends = ["Ahmed", "Mohamed", "Sayed", "Alaa"];
+
+        console.log(myFriends);
+
+        myFriends.unshift("Oussama", "Nabil");
+
+        console.log(myFriends);
+
+        myFriends.push("Samah", "Iman");
+
+        console.log(myFriends);
+
+        let first = myFriends.shift(); // Return the value deleted in a variable fisrt then 
+                                      // and remove it from the fisrt
+
+        console.log(myFriends);
+
+        console.log(first);
+
+        let last = myFriends.pop(); // Return the value deleted in a variable last then 
+                                      // and remove it from the last
+
+        console.log(myFriends);
+
+        console.log(last);
+  
+  - indexOf(search Element, From Index [Opt]) => Return The Index Of The Element
+  - lastIndexOf(search Element, From Index [Opt]) => Return The Last Index Of The Element
+  - includes(search Element, From Index [Opt]) => Return True Or False If The Element Found
+
+      Ex:
+        let myFriends = [" Ahmed  ", "Mohamed", "Sayed", "Alaa", " Ahmed"];
+
+        console.log(myFriends.indexOf("Ahmed"));
+        console.log(myFriends.indexOf("Ahmed", 2));
+
+        console.log(myFriends.lastIndexOf("Ahmed"));
+        console.log(myFriends.lastIndexOf("Ahmed", -2));
+
+        for (let i = 0; i < myFriends.length; i++) {
+          myFriends[i] = myFriends[i].trim();
+          // console.log(myFriends[i]);
+        }
+        console.log(myFriends);
+
+        if (myFriends.includes("Ahmed")) {
+            console.log("Ahmed is included");
+        } else {
+          console.log("Ahmed is not included"); 
+        }
+
+        if (myFriends.indexOf("Ahed") === -1) {
+          console.log("Not Found");
+        }
+
+        if (myFriends.indexOf("Ahed") === -1) {
+          console.log("Not Found");
+        }
+  
+  - sort() => Sort The Array Elements As Strings In Ascending Order
+  - reverse() => Reverse The Array Elements Order
+
+  EX:
+    let mom = [10, -10, 20, "omar", 90, 20, -23, 23, 100, "wafi2"];
+    mom.sort().reverse();
+    console.log(mom);
+
+  note : the sort doesn't make the array from the lower to the higher
+        it just make the order reference the alphabet order
+
+  - slice
+  - splice (Start [Mant], DeleteCount [Opt] [0 No Remove], The Items To Add [Opt] )
+  -- If Negative => Start From The End
+
+  EX:
+      let myFriends = ["Ahmed", "Sayed", "Ali", "Osama", "Gamal", "Ameer"];
+      console.log(myFriends);
+      console.log(myFriends.slice());
+      console.log(myFriends.slice(1, 3));
+      console.log(myFriends.slice(-3, -1));
+      console.log(myFriends);
+
+      myFriends.splice(0, 1, "Sameer", "Samara");
+
+      console.log(myFriends);
+    
+  - concat (array, array, item, array defined) => Return A New Array
+  - join (Seprator)
+
+  EX:
+    let myFriends = ["Ahmed", "Sayed", "Ali", "Osama", "Gamal", "Ameer"];
+    let myNewFriends = ["Samar", "Sameh"];
+    let schoolFriends = ["Haytham", "Shady"];
+
+
+    let allFriends = myFriends.concat(myFriends, schoolFriends, "Gameel", [1, 2]);
+    console.log(allFriends);
+
+    console.log(allFriends.join()); // sep = ,
+    console.log(allFriends.join("")); // sep =
+    console.log(allFriends.join(" @ "));
+    console.log(allFriends.join("|"));
+    console.log(allFriends.join("|").toUpperCase());
+*/

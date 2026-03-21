@@ -1,0 +1,58 @@
+/*
+  Array Methods
+  - Array.from(Iterable, MapFunc, This)
+  --- Variable
+  --- String Numbers
+  --- Set
+  --- Using The Map Function
+  --- Arrow Function
+  --- Shorten The Method + Use arguments
+
+  EX:
+      console.log(Array.from("Omar"));
+
+      console.log(Array.from("12345", (e) => +e + +e));
+
+      // --- SET ---
+      let myArray = [1, 1, 1, 2, 3, 4];
+
+      let mySet = new Set(myArray);
+
+      console.log(Array.from(mySet));
+
+      console.log([...new Set(myArray)]); // Future
+
+      // --- Arguments ---
+      function af() {
+        return Array.from(arguments);
+      }
+
+      console.log(af(1, 2, 3, 4, 5, 6, 7));
+*/
+
+/*
+  From Claude
+
+  1)
+    console.log(Array.from({length: 3}, (_, i) => i * 2))
+
+  2)
+    console.log(Array.from({length: 5}, (_, i) => i + 1));
+
+  3)
+    let s = new Set(['a','b','c'])
+    console.log(Array.from(s, (e) => e+e))
+  4)
+
+  // Q12 · 📦 arguments object
+  // Which function lets you use 'arguments' object?
+  // Arrow functions don't have their own 'arguments'
+  // const f = () => Array.from(arguments)
+  // function f() { return Array.from(arguments) }
+  // // Both work the same
+  // // Neither works
+  // ✅ Only regular functions have their own 'arguments'
+  //  object. Arrow functions inherit 'arguments' from the enclosing scope —
+  //  or throw ReferenceError if there's none. Always use regular functions when you need 'arguments'.
+
+*/

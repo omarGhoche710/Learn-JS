@@ -1,0 +1,42 @@
+  Variables Intro (
+    - var => Old Way To Declare Variable
+    - let => New Way To Declare Variable
+    - const => New Way To Declare Constant Variable (We Can't Change Its Value)
+
+    - Naming Rules: (
+        - Can't Start With Number
+        - Can't Contain Spaces
+        - Can't Be Reserved Keywords
+        - Can Start With: Letter - _ - $
+      )
+
+    - If we have <div id="hello">Hello</div>, the id is as a variable name, we can:
+      console.log(hello);// Accessing to the element directly by its id name
+      console.log(hello.textContent);// Getting the text content of the element
+      hello.innerHTML = "Omar";// Changing the text content of the element
+
+  )
+
+*/
+
+/*
+  Var (
+    - Redeclare (Yes) => That will make many Declares Of a One Variable
+    - Access Before Declare (Undefined) => You cannot Know what the error
+    - Variable Scope Drama [Added To Window] (Yes) => Each variable created can we access with the object window
+    - Block or Functiom Scope
+  )
+
+  Let (
+    - Redeclare (No => Error)
+    - Access Before Declare (Error)
+    - Variable Scope Drama (No)
+    - Block or Functiom Scope
+
+  Const (
+    - Redeclare (No => Error)
+    - Access Before Declare (Error)
+    - Variable Scope Drama (No)
+    - Block or Functiom Scope
+  )
+)

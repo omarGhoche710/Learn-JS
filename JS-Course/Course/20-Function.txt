@@ -1,0 +1,259 @@
+/*
+  Function (
+    - we have: User-Defined and Built In
+  )
+
+  EX:
+    console.log(typeof console.log); // function
+
+    function sayHello(userName) {
+      console.log(`Hello ${userName}`);
+    }
+
+    sayHello("Omar");
+*/
+
+/*
+  Advanced Example (
+    function sayHello(userName, age) {
+      if (age < 20) {
+        console.log('App is Not Suitable For You');
+      } else {
+        console.log(`Hello ${userName}, Your Age is ${age}`);
+      }
+    }
+
+    sayHello("Omar", 20);
+    sayHello("Oussama", 16);
+
+    function generateYears(start, end, exclude) {
+      let tmp;
+      if (start > end) {
+        tmp = start;
+        start = end;
+        end = tmp;
+      }
+      for (let i = start; i <= end; i++) {
+        if (i === exclude) continue;
+        console.log(i);
+      }
+    }
+    generateYears(2030, 2013, 2012);
+  ) 
+*/
+
+/* 
+  Function (
+    - Return
+    - Automatic Semicolon Insertion [No Line Terminator Allowed]
+    - Interrupting
+  )
+
+  Ex:
+  function calc(num1, num2) {
+    return; // it will put semicolon automated
+    // num1 + num2; // Error We can make line terminator
+    //let x = 1; // Unreadable
+  }
+
+  let result = calc(10, 20);
+
+  console.log(result); // Undefined
+
+  Ex:
+  function generate(start, end) {
+    for (let i = start; i <= end; i++) {
+      if (i === 15) return "Interrupting";
+      console.log(i);
+    }
+  }
+  console.log(generate(10, 20));
+*/
+
+/*
+  Function ( 
+    - Default Function Parameters
+    - Function Parameters Default [Undefined]
+    - Old Strategies [condition + Logical Or]
+    - ES6 Method
+
+    EX:
+    function sayHello(username, age = "Unknown") {
+      // if (age === undefined) {
+      //   age = "Unknown";
+      // }
+      // age = age || "Unknown";
+      return `Hello ${username} Your Age Is ${age}`;
+    }
+    console.log(sayHello("Osama"));
+  )
+*/
+
+/*
+  Function
+  - Rest Parameters
+  - Only One Allowed => we can't define many rest parameters
+  - Must Be Last Element
+
+  Ex: 
+  function calc(...numbers) {
+    // console.log(Array.isArray(numbers)); \\true
+    let result = 0;
+
+    for (let i = 0; i < numbers.length; i++) {
+      result += numbers[i];
+    }
+    return `The result is ${result}`;
+  }
+  console.log(calc(10, 20, 10, 30, 50));
+*/
+
+/*
+  Big Example:
+      function showInfo(un = "Un", age = "Un", rate = 0, show = "Yes", ...skills) {
+        document.write(`<div>`);
+        document.write(`<h2>Welcome, ${un}</h2>`);
+        document.write(`<p>Age: ${age}</p>`);
+        document.write(`<p>Hour Rate: $${rate}</p>`);
+        if (show === "Yes") {
+          if (skills.length > 0) {
+            document.write(`<p>Skills: ${skills.join(" | ")}</p>`);
+          } else {
+            document.write(`<p>Skills: No Skills</p>`);
+          }
+        } else {
+          if (skills.length > 0) {
+            document.write(`<p>Skills Is Hidden</p>`);
+          } else {
+            document.write(`<p>Skills: No Skills</p>`);
+          }
+        }
+        document.write(`</div>`);
+      }
+      // showInfo(undefined, 20, 10, "Yes", "HTML", "CSS");
+      showInfo("Omar", 20, 10, "No");
+*/
+
+/*
+  Function (
+  
+    - Anonymous Function
+    - Calling Named Function VS Anonymous Function
+    - Argument To Other Function
+    - Task without Name
+    - SetTimeout
+    
+    Using: We use it when we make an event
+  )
+  Ex:
+      console.log(calc(10, 20)); // No Error
+
+      function calc(num1, num2) {
+        return num1 + num2;
+      }
+      // ------------------------------------
+      // console.log(calculator(10, 20)); // Uncaught ReferenceError: Cannot access 'calculator' before initialization
+
+      let calculator = function (num1, num2) {
+        return num1 + num2;
+      };
+
+      console.log(calculator(10, 20));
+      // ------------------------------------
+
+      document.getElementById("show").onclick = function () {
+        console.log("Show");
+      };
+
+      // ------------------------------------
+
+      setTimeout( function() {
+        console.log("Good");
+      }, 1000);
+
+      // ------------ Use A Function In Event ----------------
+      function sayHello() {
+        console.log("Hello");
+      }
+      document.getElementById("show").onclick = sayHello;
+*/
+
+/*
+Return Nested Function
+/// Example 1
+// function sayMessage(fName, lName) {
+
+//   let message = `Hello`;
+
+//   function concatMsg() {
+//     message = `${message} ${fName} ${lName}`;
+//   }
+
+//   return message;
+// }
+
+// console.log(sayMessage("omar", "ghoch"));
+
+/// Example 2
+// function sayMessage(fName, lName) {
+
+//   let message = `Hello`;
+
+//   function concatMsg() {
+//     return `${message} ${fName} ${lName}`;
+//   }
+
+//   return concatMsg();
+// }
+
+/// Example 3
+// function sayMessage(fName, lName) {
+//   let message = `Hello`;
+
+//   function concatMsg() {
+//     function getFullName() {
+//       return `${fName} ${lName}`;
+//     }
+//     return `${message} ${getFullName()}`;
+//   }
+
+//   return concatMsg();
+// }
+*/
+
+/*
+  Function (
+    - Arrow Function
+    - Regular VS Arrow [Param + No Param]
+    - Multiple Lines
+  )
+
+// let print = function() {
+//   return 10;
+// };
+
+// let print = () => {
+//   return 10;
+// };
+
+///-- IF ONE STATEMENT --
+// let print = () => 10;
+// let print = _ => 10;
+
+/// -- One Parameter
+// let print = function(num) {
+//   return num;
+// };
+
+// let print = (num) => num;
+// let print = num => num; // Just IF One Parameter
+
+/// -- Two Paramteres
+// let print = function(num1, num2) {
+//   return num1 + num2;
+// };
+
+// let print = (num1, num2) => num1 + num2;
+
+// console.log(print(100, 50));
+*/

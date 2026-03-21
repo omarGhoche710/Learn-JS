@@ -1,0 +1,49 @@
+// Note : To get the min value from Array
+// let arr = [1, 8, 0, 9, 3];
+
+// console.log(Math.min(...arr));
+
+function getMin(array) {
+  return Math.min(...array);
+}
+
+function getIndexMin(array) {
+  return array.indexOf(getMin(array));
+}
+
+function getMax(array) {
+  return Math.max(...array);
+}
+
+function getIndexMax(array) {
+  return array.indexOf(getMax(array));
+}
+
+function sumArray(array) {
+  const min = getMin(array);
+  const max = getMax(array);
+  const minIndex = getIndexMin(array);
+  const maxIndex = getIndexMax(array);
+  return array
+    .filter(
+      (ele, index, array) =>
+        (ele !== min && ele !== max) ||
+        (index !== minIndex && index !== maxIndex)
+    )
+    .reduce((acc, current) => acc + current);
+}
+
+console.log(sumArray([1, 1, 11, 2, 3]));
+---------------------------------------
+
+Second Method:
+
+function sumWHLN(array) {
+  if (array === null) return 0;
+  return array
+    .sort((a, b) => a - b)
+    .slice(1, -1)
+    .reduce((acc, current) => acc + current, 0);
+}
+
+console.log(sumWHLN([8, 1, 3, 1, 4, 5]));

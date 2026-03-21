@@ -1,0 +1,29 @@
+// Create a function that takes an array of numbers and return both the minimum and maximum numbers, in that order.
+
+  Examples
+  minMax([1, 2, 3, 4, 5]) ➞ [1, 5]
+
+  minMax([2334454, 5]) ➞ [5, 2334454]
+
+  minMax([1]) ➞ [1, 1]
+
+function minMax(arr) {
+  let min, max;
+	if (arr.length === 0) {
+		return "please Enter at least One Element";
+	}
+	sortArray = arr.sort();
+	// min = sortArray[0];
+	max = sortArray[sortArray.length - 1];
+
+  for (i = 0; i < sortArray.length; i++) {
+    if (sortArray[i + 1] >= 0) {
+      min = sortArray[i];
+      break;
+    }
+  }
+	return [min, max];
+}
+
+
+console.log(minMax([5, 3, 8, 0, -1, 9, -6, -8]));

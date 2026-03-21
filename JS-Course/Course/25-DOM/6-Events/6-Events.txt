@@ -1,0 +1,129 @@
+/*
+  DOM [Events]
+  - Use Events On HTML
+  - Use Events On JS
+  --- onclick
+  --- oncontextmenu => when we make right click on an element
+  --- onmouseenter => when we hover
+  --- onmouseleave => when we leave the hover
+
+  --- onload
+  --- onscroll => when we make scroll
+  --- onresize => when we resize the window
+
+  --- onfocus => when we focus on the input
+  --- onblur =>when we leave the input
+  --- onsubmit => we can make verification on the submit
+  before the information will be send to server
+
+  EX:
+      <body>
+    <button id="btn">Button</button>
+    <hr />
+    <form action="">
+      <input type="text" name="" id="" />
+      <input type="submit" value="Submit Data" />
+    </form>
+    --------------------------------------
+        <style>
+      body {
+        height: 5000px;
+      }
+    </style>
+    ------------------------------------
+      let myBtn = document.getElementById("btn");
+
+    myBtn.onmouseleave = function () {
+      console.log("clicked");
+    };
+
+    window.onscroll = function () {
+      console.log("scroll");
+    };
+
+    window.onresize = function () {
+      console.log("resize");
+    };
+
+    let input = document.querySelector("input");
+
+    input.onfocus = function () {
+      console.log("password should be 8 Characters");
+    };
+
+    input.onblur = function () {
+      console.log("Error, please enter a valid password");
+    };
+*/
+
+/* 
+  DOM [Events]
+  - Validate Form Practice
+  - Prevent Defauslt
+  EX:
+    document.links[0].onclick = function(e) {
+      e.preventDefault();
+    }
+
+    let userInput = document.querySelector("[name='username']");
+    let ageInput = document.querySelector("[name = 'age']");
+    let span1 = document.getElementById("error1");
+    let span2 = document.getElementById("error2");
+
+    document.forms[0].onsubmit = function(e) {
+      let error1 = "Name should be Less Than 10 Chatacters";
+      let error2 = "Please enter a password";
+      let userValid = false;
+      let ageValid = false;
+      
+      if (userInput.value !== "" && userInput.value.length <= 10) {
+        span1.innerHTML = "";
+        userValid = true;
+      }
+      
+      if (ageInput.value !== "") {
+        span2.innerHTML = "";
+        ageValid = true;
+      }
+
+      if (!userValid || !ageValid) {
+        if (!userValid) {
+          span1.innerHTML = error1;
+        }
+        if (!ageValid) {
+          span2.innerHTML = error2;
+        }
+        e.preventDefault();
+      }
+    }
+*/
+--------------------------------
+/*
+  DOM [Events Simulation]
+  - click
+  - focus
+  - blur
+   
+  EX:
+     <form action="">
+      <input class="one" type="text">
+      <input class="two" type="text">
+      <input type="submit" value="Submit Data">
+    </form>
+    <a href="https://google.com" target="_blank">Google</a>
+    ---------------------------------
+      let two = document.querySelector(".two");
+      let one = document.querySelector(".one");
+
+      window.onload = function(){
+        one.focus();
+      };
+
+      // one.onblur = function() {
+      //   document.links[0].click();
+      // };
+
+      one.onkeyup = function() {
+        two.focus();
+      }
+*/

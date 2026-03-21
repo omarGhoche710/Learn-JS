@@ -1,0 +1,270 @@
+/*
+  Object_1(
+  - Intro and What Is Object
+  - Testing Window object
+  - Accessing Object
+  )
+  
+  Ex:
+    window => object 
+    window.location => nested object
+    window.location.href => propertie
+    window.location.assign => method
+
+  Ex:
+    let user = {
+      // Properties
+      theName: "Omar",
+      theAge: 20,
+      // Methods
+      sayHello: function() {
+        return "Hello";
+      }
+    };
+
+    console.log(user.theName);
+    console.log(user.theAge);
+    console.log(user.sayHello());
+*/
+
+----------------------------------------------
+
+/*
+  Object_2(
+    - Big Deeper
+    - Dot Notation Vs Bracket Notation
+    - Dynamic Property Name
+  )
+  EX:
+    let user = {
+      "theName": "Omar",
+      "country of": "Lebanon",
+    }
+
+    // console.log(user.country of); // Error
+    console.log(user["country of"]); // Lebanon
+    console.log(user.theName); // Omar
+    console.log(user["theName"]); // Omar
+
+
+    let user2 = {
+      theName: "Omar",
+      "country of": "Lebanon",
+    }
+
+    console.log(user2["theName"]); // Omar
+    console.log(user2.theName); // Omar
+
+    let user3 = {
+      theName: "Omar",
+      100: "Number"
+    }
+
+    console.log(user3[100]); // Number
+
+    // Dynamic Property Name
+    let myVar = "country";
+
+    let user4 = {
+      theName: "Omar",
+      country: "Lebanon"
+    }
+
+    console.log(user4.myVar); // Undefined
+    console.log(user4[myVar]); // Lebanon
+*/
+
+-------------------------------------------------------
+
+/* 
+  Object
+  - Nested Object And Trainings
+  EX:
+      let user = {
+        name: "Osama",
+        age: 38,
+        skills: ["HTML", "CSS", "JS"],
+        available: false,
+        adresses: {
+          ksa: "Riyadh",
+          egypt: {
+            one: "Cairo",
+            two: "Giza",
+          },
+        },
+        checkAv: function() {
+          if (this.available === true) {
+            // We should Put this because it's not a global varible
+            return 'Free For Work';
+          } else {
+            return 'Not Free';
+          }
+        },
+      };
+
+      console.log(user.name);
+      console.log(user.age);
+      console.log(user.skills.join(" | "));
+      console.log(user.adresses);
+      console.log(user.adresses.ksa);
+      console.log(user.adresses.egypt.one);
+      console.log(user.adresses.egypt.two);
+      console.log(user['adresses'].egypt.one);
+      console.log(user['adresses']["egypt"]);
+      console.log(user['adresses']["egypt"]["one"]);
+      console.log(user.checkAv());
+*/
+--------------------------------------------
+/*
+  Object(
+    - Create With New Keyword new Object();
+  )
+  EX:
+    let user = {
+      age: 20, // If I Have A property here it will be updated
+    };
+
+    console.log(user);
+
+    user.age = 30;
+    user["country"] = "Lebanon";
+
+    user.sayHello = function() {
+      return `Hello`;
+    }
+
+    console.log(user);
+
+
+    let admin = new Object({
+      age: 20,
+    }); // new Method
+
+    console.log(admin.age);
+
+*/
+-------------------------------------------------------------
+
+/*
+  Question1: what is the difference between Function, Method, CallBack Function And Event?
+  ---> Function: do not belong for anything
+      EX:
+      function sayHi() {
+      return 'hi';
+      }
+
+  ---> Method: is a function that belong to an object
+      EX:
+      let obj = {
+        myMethod: function() {
+          return 'Hello From Method';
+        }
+      };
+  
+  ---> Callback Function is used when an event maked, It's called
+        From the Browser
+      Ex: btn.onclick = func;
+
+
+      ---> Event (onload, onclick...)
+*/
+
+-------------------------------------------------------------------------
+
+/*
+  Question2: Why we don't use the name Of the object instead of [this]
+            when we want to use a propertie in the Method Of this Object?
+  first, If we write --> checkAv: function () {
+                                  return user.available ? "Free For Work" : "Not Free";
+                                  }
+  This Function is just for this Object, we can't reuse it
+  Ex:
+    let user = {
+      available: true,
+      checkAv: function() {
+        return user.available ? "Free For Work" : "Not Free";
+      },
+    };
+
+    let admin = {
+      available: false,
+      checkAv: user.checkAv,
+    };
+
+    console.log(admin.checkAv()); // Free for Work, instead Of Not Free
+
+    If We want to solve this Problem we should use this
+*/
+
+/*
+  Question3: Why we don't use this For Arrow Function
+  fisrt, we can speak on The Diffrence between the arrow 
+  function and standard function:
+  - Arrow functions don't have their own bindings to this, arguments, or super, and should not be used as methods.
+  - Arrow functions cannot be used as constructors. Calling them with new throws a TypeError. They also don't have access to the new.target keyword.
+  - Arrow functions cannot use yield within their body and cannot be created as generator functions.
+
+  1- Returning object literals using the expression body syntax (params) => { object: literal } does not work as expected:
+  const func = () => { foo: 1 };
+  // Calling func() returns undefined!
+
+  const func2 = () => { foo: function () {} };
+  // SyntaxError: function statement requires a name
+
+  const func3 = () => { foo() {} };
+  // SyntaxError: Unexpected token '{'
+
+  To fix this, wrap the object literal in parentheses:
+  const func = () => ({ foo: 1 });
+
+  2- Arrow function expressions should only be used for non-method
+  functions because they do not have their own this. Let's see what happens
+  when we try to use them as methods:
+    let user = {
+    name: "Omar",
+    b: () => {
+      console.log(this.name, this);
+    },
+    c() {
+      console.log(this.name, this);
+    },
+  };
+
+  user.b();  // logs undefined, Window { … }
+  user.c();  // logs 10, Object { … }
+
+  Ex2:
+    let user = {
+      name: "Omar",
+      b: {
+        age: 30,
+        a: () => console.log(this.name, this),
+        f() {
+          console.log(this.age, this);
+        },
+      },
+      c() {
+        console.log(this.name, this);
+      },
+    };
+
+    user.b.a(); // undefined, object window
+    user.b.f(); // 30, object b
+
+----------------------------------------------------
+--- GET Object length ---
+
+let object = {
+  a: "omae",
+  b: 2,
+  c: 3
+};
+
+console.log(Object.entries(object).length);
+
+------------------------------------------------------
+--- Get Keys And Values ---
+
+for (let [key, value] of Object.entries(object)) {
+  console.log(`${key} => ${value}`)
+}

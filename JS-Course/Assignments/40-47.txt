@@ -1,0 +1,90 @@
+1)
+
+let myFriends = ["Ahmed", "Elham", "Osama", "Gamal"];
+let num = 3;
+
+// let x = myFriends.indexOf("Ahmed");
+// myFriends = myFriends.slice(x, num);
+// // Method 1
+// console.log(myFriends); // ["Ahmed", "Elham", "Osama"];
+
+myFriends.pop();
+// Method 2
+console.log(myFriends); // ["Ahmed", "Elham", "Osama"];
+
+
+------------------------------------------------
+
+2)
+
+let friends = ["Ahmed", "Eman", "Osama", "Gamal"];
+
+// Write Your Code Here
+friends.shift();
+friends.pop();
+console.log(friends); // ["Eman", "Osama"]
+
+------------------------------------------
+
+3)
+let arrOne = ["C", "D", "X"];
+let arrTwo = ["A", "B", "Z"];
+let finalArr = [];
+
+// Write One Single Line Of Code
+// finalArr = arrTwo.pop().concat(arrOne.reverfse(), arrTwo.reverse());
+finalArr = arrTwo.pop().split().concat(arrOne.reverse(), arrTwo.reverse());
+console.log(finalArr); // ["Z", "X", "D", "C", "B", "A"]
+
+------------------------------------------------
+
+4)
+
+let website = "Go";
+let words = [`${website}ogle`, "Facebook", ["Elzero", "Web", "School"]];
+
+console.log(words.pop()[0].slice(website.length).toUpperCase()); // ZERO
+
+--------------------------------------------
+
+5)
+
+let needle = "JS";
+let haystack = ["PHP", "JS", "Python"];
+
+// Write 3 Solutions
+
+if (haystack.includes(needle)) {
+  console.log("Found");
+}
+
+if (haystack.indexOf(needle) !== -1) {
+  console.log("Found");
+}
+
+if (haystack.lastIndexOf(needle) !== -1) {
+  console.log("Found");
+}
+
+
+--------------------------------
+6)
+
+let arr1 = ["A", "C", "X"];
+let arr2 = ["D", "E", "F", "Y"];
+let allArrs = [];
+
+// Your Code Here
+allArrs = (arr2.pop().concat(" ", arr1.pop()," ", arr2.pop())).split(" ").reverse().join("").toLowerCase();
+console.log(allArrs); // fxy
+
+or
+
+let arr1 = ["A", "C", "X"];
+let arr2 = ["D", "E", "F", "Y"];
+let allArrs = [];
+
+// Your Code Here
+// allArrs = (arr2.pop().concat(" ", arr1.pop()," ", arr2.pop())).split(" ").reverse().join("").toLowerCase();
+allArrs = [arr2.pop(), arr1.pop(), arr2.pop()].reverse().join("").toLowerCase();
+console.log(allArrs); // fxy

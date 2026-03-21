@@ -1,0 +1,51 @@
+/*
+  DOM
+  - What Is DOM
+  - DOM Selectors
+  --- Find Element By ID
+  --- Find Element By Tag Name
+  --- Find Element By Class Name
+  --- Find Element By CSS Selectors // WE can write everyting on it
+  --- Find Element By Collection
+  ------ title
+  ------ body
+  ------ images
+  ------ forms
+  ------ links
+
+  EX:
+
+      <span class="my-span special">My Span 1</span>
+      <span class="my-span">My Span 2</span>
+      <p>Hello Paragraph 1</p>
+      <p>Hello Paragraph 2</p>
+      <div id="my-div">Hello Div</div>
+      <form action="">
+        <input type="text" name="one" value="Hello" />
+      </form>
+      <form action="">
+        <input type="text" name="two" value="Hello" />
+      </form>
+      <a href="https://google.com">Google</a>
+      <a href="https://facebook.com">Facebook</a>
+    ----------------------------------------------------
+    let myIdElement = document.getElementById("my-div");
+    let myTagElements = document.getElementsByTagName("p");
+    let myClassElements = document.getElementsByClassName("my-span");
+    let myQueryElement = document.querySelector(".my-span"); // just The first Element
+    let myQueryElements = document.querySelectorAll(".my-span"); // All The Elements
+
+    console.log(myIdElement);
+    console.log(myTagElements[1]);
+    myTagElements[1].innerHTML = "Test";
+    console.log(myClassElements[1]);
+    console.log(myQueryElement);
+    console.log(myQueryElements[1]);
+
+    console.log(document.title);
+    console.log(document.body);
+    console.log(document.forms[0]); // Access the first Form
+    console.log(document.forms[0].one); // Access the input has name "one"
+    console.log(document.forms[0].one.value); // Access Value
+    console.log(document.links[1].href); // Access the Href
+*/

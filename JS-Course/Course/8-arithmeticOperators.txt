@@ -1,0 +1,42 @@
+
+  Arithmetic Oprators(
+    - : Subtraction
+    * : Multiplication
+    / : Division
+    % : Modulus (Remainder)
+    ** : Exponentiation (Power)
+    + : Addition    
+    ++ : Increment [posfix & prefix] => postfix: x++ , prefix: ++x
+    -- : Decrement [posfix & prefix] => postfix: x-- , prefix: --x
+    The Postfix Increment/Decrement operators return the value before incrementing/decrementing
+    Example:
+      let a = 10;
+      console.log(a++); // 10
+      console.log(a);   // 11
+    The Prefix Increment/Decrement operators return the value after incrementing/decrementing
+    Example:
+      let a = 10; 
+      console.log(++a); // 11
+
+    note: 
+      console.log(10 - "omar"); // NaN(typeOf is number)
+      We can't use ++ before or after a value that is not a variable
+      Ex:
+        (
+          let a = 10;
+          ++(10);
+          ++"20";
+          ++(a + b);
+          ++-a; // we can't because -a is not a variable, the solution is to put it between parenthesis
+          ex: ++(-a)
+        ) => All will give Error
+  )
+
+
+  Assignment Operators(
+      let a = 10;
+      a += 20;
+      a /= 20;
+      a -= 20;
+      a %= 20;
+  )

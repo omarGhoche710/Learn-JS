@@ -1,0 +1,118 @@
+  String Methods (
+    - Access With Index
+    - Access With charAt()
+    - length
+    - trim() => the space between the world is never untouched (
+      - trim
+      - trimStart
+      - trimEnd
+    )
+    - toUpperCase
+    - toLowerCase()
+    - Chain Methodsv
+    Ex:
+      let my_name = "  omar";
+      my_name = my_name.trim();
+      console.log(my_name.length)
+      console.log(my_name[0])
+      console.log(my_name.charAt(0))
+      console.log(my_name.toUpperCase())
+      console.log(my_name.toLowerCase())
+      console.log(my_name.toLowerCase())
+
+      console.log(my_name.charAt(2).toUpperCase())
+
+      // IF I want to return the letter m [uppercase] with trim the name
+      console.log(theName.trim().charAt(2).toUpperCase());
+
+      Example Of Using charAt:
+        let username = document.getElementById("username").value;
+
+        // بدنا أول حرف
+        let first = username.charAt(0);
+
+        if (first.toLowerCase() !== "a") {
+          console.log("الاسم لازم يبدأ بحرف A");
+        }
+        /// If we using here [] and the user don't get anything
+        the index 0 will return undefined and there is not a method
+        with undefined, otherwise if we use charAt it will return "".
+
+  )
+*/
+
+/*
+  String Methods Part 2 (
+    - indexOf(Value [Mandatory], Start [Optional] 0)
+    - lastIndexOf(Value [Mandatory], Start [Optional] length - 1)
+    - slice(Start [Mandatory], End{not include} [Optional] length)
+    - repeat(Number Of Repetition [Mandatory])
+    - split(Separator [Optional], Limit [Optional])
+
+    let a = "Elzero Web School";
+
+    EX:
+      console.log(a.indexOf("web")); // 7
+      console.log(a.indexOf("web", 8)); // -1
+
+      console.log(a.indexOf("o")); // 5
+      console.log(a.lastIndexOf("o")); // 15
+      console.log(a.lastIndexOf("o", 6)); // 5[Because it research from the end to the start]
+
+      console.log(a.slice(0)); // Elzero Web School
+      console.log(a.slice(2, 6)); // zero
+
+      console.log(a.slice(-5, -3)) // ch
+
+      console.log(a.repeat(4));
+
+      console.log(a.split()); // [Elzero Web School]
+      console.log(a.split("")); // ['E', 'l', 'z', 'e', 'r', 'o', ' ', 'W', 'e', 'b', ' ', 'S', 'c', 'h', 'o', 'o', 'l']
+      console.log(a.split(" ")); // ['Elzero', 'Web', 'School']
+
+      console.log(a.split(" ", 2)); // ['Elzero', 'Web']
+
+*/
+
+/*
+  String Methods Part 3 (
+    - substring (Start [Mand], End [Opt] Not Including End) (
+      - Start > End will Swap
+      - Start < 0 It Start from 0
+      - Use Length To Get Last Character  
+    ) 
+    - substr (Start [Mand], Characters To Extract) (
+      - Start >= Length = ""
+      - Negative Start From End
+    )
+    ===== Return TRUE Or FALSE ====
+    - includes (Value [Mand], Start [Opt] Default 0) [ES6] 
+    - startsWith (Value [Mand], Start [Opt] Default 0) [ES6]
+    - endsWith (Value [Mand], length [Opt] Default Full length) [ES6]
+  )
+
+  EX:
+  let a = "Elzero Web School";
+
+  console.log(a.substring(2, 6)); // zero
+  console.log(a.substring(6, 2)); // --> swap --> zero
+  console.log(a.substring(-10, 6)); // 0 --> 6
+  console.log(a.substring(a.length - 1)); // Last Character
+  console.log(a.substring(a.length - 5)); // chool
+  console.log(a.substring(a.length - 5, a.length - 3)); // ch
+
+  console.log(a.substr(0, 6)); // Elzero
+  console.log(a.substr(17)); // ""
+  console.log(a.substr(-5, 2)); // ch
+
+  console.log(a.includes("Web")); // true
+  console.log(a.includes("Web", 8)); // false
+
+  console.log(a.startsWith("E")); // true
+  console.log(a.startsWith("E", 2)); // false
+  console.log(a.startsWith("z", 2)); // true
+
+  console.log(a.endsWith("l")); // true
+  console.log(a.endsWith("l", 6)); // false
+  console.log(a.endsWith("o", 6)); // true
+*/

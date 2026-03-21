@@ -1,0 +1,14 @@
+// This Challenge return the number Of matchsticks Of matchHouses
+// Ex: console.log(matchHouses(1)); // 6
+                  *
+                *   *
+              *  * * * 
+              *      *
+              *      *
+              ********
+
+function matchHouses(step) {
+	return step > 0 ? step * 6 - step + 1 : step === 0 ? 0 : "Please Enter A Number";
+}
+
+console.log(matchHouses(0));

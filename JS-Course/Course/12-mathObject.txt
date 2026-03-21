@@ -1,0 +1,27 @@
+  Math Object (
+    - round() => Rounds To The Nearest Integer
+    - ceil() => Rounds Up To The Nearest Integer
+    - floor() => Rounds Down To The Nearest Integer
+    - min() => Returns The Smallest Of Zero Or More Numbers
+    - max() => Returns The Largest Of Zero Or More Numbers
+    - pow() => Returns The Base to The Exponent Power
+    - random() => Returns A Random Number Between 0 And 1
+    - trunc() => Removes The Decimal Part Of The Number
+
+    Ex: 
+      console.log(Math.round(99.2)); // 99
+      console.log(Math.round(99.5)); // 100
+
+      console.log(Math.ceil(99.2)); // 100
+      console.log(Math.ceil(99.9)); // 99
+
+      console.log(Math.min(10, -2, 34, 44, -1));
+      console.log(Math.max(10, -2, 34, 44, -1));
+
+      console.log(Math.pow(2, 4)); // 16
+
+      console.log(Math.random());
+
+      console.log(Math.trunc(99.5)); // 99
+  )
+*/

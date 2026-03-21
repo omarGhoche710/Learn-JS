@@ -1,0 +1,31 @@
+1)
+
+const data = [1, "a", 3, "bb", "", 5, "ccc", null];
+
+const sum = data.reduce(function (acc, current) {
+  return typeof current === "number"
+    ? acc + current
+    : typeof current === "string" && current.length >= 2
+    ? acc + 1
+    : acc;
+}, 0);
+
+console.log(sum);
+
+
+
+------------------------------
+
+2)
+
+const data = [10, "hi", 2, "hello", false, "a", 3];
+
+const sum = data.reduce(function (acc, current) {
+  return typeof current === "number" && current % 2 === 0
+    ? acc + current
+    : typeof current === "string" && current.length > 2
+    ? acc + 1
+    : acc;
+}, 0);
+
+console.log(sum);

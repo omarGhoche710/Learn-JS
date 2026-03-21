@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .move-word {
+        background-color: rgb(181, 172, 172);
+        color: white;
+        border-radius: 5px;
+        width: fit-content;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="move-word">JavaScript</div>
+    <script>
+      const element = document.querySelector(".move-word");
+      let position = 2;
+
+      function animate() {
+        update();
+
+        checkIfReachedRight();
+
+        requestAnimationFrame(animate);
+      }
+
+      function update() {
+        element.style.cssText = `transform: translateX(${position}px)`;
+        position += 2;
+      }
+
+      function checkIfReachedRight() {
+        const rect = element.getBoundingClientRect();
+
+        if (rect.left >= window.innerWidth) {
+          position = -rect.width;
+        }
+      }
+
+      requestAnimationFrame(animate);
+    </script>
+    <script src="./js/main.js"></script>
+  </body>
+</html>

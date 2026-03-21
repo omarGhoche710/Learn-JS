@@ -1,0 +1,7 @@
+  Output To Screen (
+    - Window.alert: - Bad using Because it Stopping the Page Until User Click OK
+                    - Making When the page is loaded
+    - Document.write: - Bad Using 
+                      - New Using: document.CreateElement
+    - console.log
+  )

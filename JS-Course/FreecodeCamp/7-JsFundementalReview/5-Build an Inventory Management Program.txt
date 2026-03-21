@@ -1,0 +1,55 @@
+let inventory = [];
+
+function findProductIndex(productName) {
+  return inventory.findIndex(({ name }) => name === productName);
+}
+
+function addProduct({ name, quantity }) {
+  const productIndex = findProductIndex(name);
+
+  if (productIndex !== -1) {
+    inventory[productIndex].quantity = quantity;
+    console.log(`${name} quantity updated`);
+  } else {
+    inventory.push({ name, quantity });
+    console.log(`${name} added to inventory`);
+  }
+}
+
+function removeProduct(name, quantityToRemove) {
+  const productIndex = findProductIndex(name);
+
+  if (productIndex === -1) {
+    console.log(`${name} not found`);
+    return;
+  } 
+  
+  const myProduct = inventory[productIndex];
+
+  if (quantityToRemove > myProduct.quantity) {
+    console.log(
+      `Not enough ${name} available, remaining pieces: ${myProduct.quantity}`,
+    );
+    return;
+  }
+  
+  if (quantityToRemove === myProduct.quantity) {
+    inventory.splice(productIndex, 1);
+    console.log(`${name} removed from inventory`); 
+    return;
+  }
+  
+  // Decrease the quantity
+  myProduct.quantity -= quantityToRemove;
+  console.log(`Remaining ${name} pieces: ${myProduct.quantity}`);
+}
+
+
+// Add Product
+addProduct({ name: "HP", quantity: 5});
+addProduct({ name: "Smart Phone", quantity: 8});
+addProduct({ name: "Techno", quantity: 6});
+
+removeProduct("HP", 5)
+
+console.log(inventory)

@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learn JavaScript</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      .container {
+        width: 500px;
+        margin: auto;
+        padding: 10px;
+      }
+
+      .container div {
+        margin-bottom: 10px;
+        background-color: #ddd;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="form">
+        <input type="text" class="input" />
+        <input type="submit" class="add" value="Add Task" />
+      </div>
+      <div class="tasks"></div>
+    </div>
+    <script src="js/main.js"></script>
+    <script>
+      let input = document.querySelector(".input");
+      let tasks = document.querySelector(".tasks");
+
+      function addTask(name, id) {
+        let myDiv = document.createElement("div");
+        let myText = document.createTextNode(name);
+        let myBtnDelete = document.createElement("button");
+
+        myDiv.style.cssText =
+          "background-color: white; padding: 10px; display: flex; justify-content: space-between";
+        myDiv.dataset.id = `${id || 0}`;
+        myBtnDelete.style.cssText = "background-color: red; color: white;";
+
+        myBtnDelete.innerHTML = "Delete";
+        myBtnDelete.className = "delete";
+
+        myDiv.append(myText);
+        myDiv.append(myBtnDelete);
+
+        tasks.append(myDiv);
+      }
+
+      function saveTask(name) {
+        let tasks = new Array();
+
+        if (window.localStorage.getItem("tasks")) {
+          tasks = JSON.parse(localStorage.getItem("tasks"));
+          tasks.push({
+            id: crypto.randomUUID(),
+            name: name,
+          });
+          console.log(tasks);
+          window.localStorage.setItem("tasks", JSON.stringify(tasks));
+        } else {
+          tasks.push({
+            id: crypto.randomUUID(),
+            name: name,
+          });
+          window.localStorage.setItem("tasks", JSON.stringify(tasks));
+        }
+      }
+
+      function deleteTask(id) {
+        let tasks = new Array();
+
+        tasks = JSON.parse(window.localStorage.getItem("tasks"));
+        console.log(tasks);
+
+        tasks = tasks.filter((task, index) => {
+          return index != id;
+        });
+
+        document.querySelector(".tasks").innerHTML = "";
+        window.localStorage.setItem("tasks", JSON.stringify(tasks));
+      }
+
+      function showTask(name) {
+        if (window.localStorage.getItem("tasks")) {
+          let tasks = new Array();
+
+          tasks = JSON.parse(localStorage.getItem("tasks"));
+
+          document.querySelector(".tasks").innerHTML = "";
+          tasks.forEach((task, index) => {
+            addTask(task.name, index);
+          });
+        } else {
+          addTask(name);
+        }
+      }
+
+      showTask();
+
+      document.querySelector(".add").addEventListener("click", function (e) {
+        e.preventDefault();
+        if (input.value !== "") {
+          saveTask(input.value);
+          showTask(input.value);
+        }
+      });
+
+      document.addEventListener("click", function (e) {
+        if (e.target.classList.contains("delete")) {
+          // console.log(e.target.parentElement.dataset.id);
+          deleteTask(e.target.parentElement.dataset.id);
+          showTask();
+        }
+      });
+    </script>
+  </body>
+</html>

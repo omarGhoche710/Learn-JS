@@ -1,0 +1,18 @@
+  Data Types Intro (
+    - String => console(typeof "Omar");
+    - Number => console(typeof 5000.44); {
+      - NaN => "is dhd" / 3
+      - infinity => 1 / 0 or rare cases
+    }
+    - Array(the type is Object but we call it Array) => console(typeof [10, 15, 17]);
+    - Object => null
+    - Object => console.log(typeof {
+                  name: "Omar",
+                  age: 20,
+                  country: "Lebanon"
+                  });
+    - Boolean => true Or false
+    - Undefined => undefined
+    - Big Int
+    - Symbol
+  )

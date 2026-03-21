@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div
+      id="red"
+      style="
+        position: fixed;
+        top: 50px;
+        width: 50px;
+        height: 50px;
+        background: red;
+      "
+    ></div>
+    <div
+      id="blue"
+      style="
+        position: fixed;
+        top: 120px;
+        width: 50px;
+        height: 50px;
+        background: blue;
+      "
+    ></div>
+    <div
+      id="green"
+      style="
+        position: fixed;
+        top: 190px;
+        width: 50px;
+        height: 50px;
+        background: green;
+      "
+    ></div>
+
+    <script>
+      class MyElement {
+        constructor(element) {
+          this.element = document.querySelector(element);
+          this.position = 0;
+        }
+      }
+
+      const red = new MyElement("#red");
+      const blue = new MyElement("#blue");
+      const green = new MyElement("#green");
+
+      function moveElement(obj, speed, direction) {
+        obj.element.style.left = `${obj.position}px`;
+
+        if (direction === "right") {
+          obj.position += speed;
+          if (obj.position > window.innerWidth) {
+            obj.position = -obj.element.offsetWidth;
+          }
+        } else {
+          obj.position -= speed;
+          if (obj.position < -obj.element.offsetWidth) {
+            obj.position = window.innerWidth;
+          }
+        }
+      }
+
+      function animate() {
+        moveElement(red, 5, "right");
+        moveElement(blue, 5, "left");
+        moveElement(green, 10, "right");
+        requestAnimationFrame(animate);
+      }
+
+      requestAnimationFrame(animate);
+    </script>
+  </body>
+</html>

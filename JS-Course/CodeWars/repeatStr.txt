@@ -1,0 +1,5 @@
+function repeatStr(n, s) {
+  return typeof s === "string" ? s.repeat(n) : "Enter A String";
+}
+
+console.log(repeatStr(3, "3"))

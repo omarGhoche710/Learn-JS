@@ -1,0 +1,49 @@
+1)
+
+just string lenght >= 0
+     number > 1
+     truthy value
+
+const items = [0, 1, 2, "", "js", null, undefined, 3, " ", false, "react"];
+
+const newItems = items.filter(function (ele) {
+  // return Number.isInteger(ele) && ele > 1;
+  return (
+    ele &&
+    ((typeof ele === "number" && ele > 1) ||
+      typeof ele === "string" &&
+      ele.length >= 2)
+  );
+});
+
+console.log(newItems);
+
+---------------------
+
+2)
+
+const mixed = [
+  0,
+  "a",
+  "ab",
+  5,
+  "",
+  null,
+  "js",
+  3,
+  "react",
+  undefined,
+  false,
+  "x",
+];
+
+const filterMixed = mixed.filter(function (ele) {
+  return (
+    (typeof ele === "number" && ele > 2) ||
+    (typeof ele === "string" && ele.length >= 2)
+  );
+});
+
+filterMixed[filterMixed.length - 1] = "LAST";
+
+console.log(filterMixed);

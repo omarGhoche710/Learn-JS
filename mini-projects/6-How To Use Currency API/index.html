@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <div><span class="amount">200</span> USD</div>
+      <p>Amount In EGP And SAR:</p>
+      <div><span class="egp"></span> EGP</div>
+      <div><span class="sar"></span> SAR</div>
+    </div>
+    <script>
+      const amountEl = document.querySelector(".amount");
+      const egpEl = document.querySelector(".egp");
+      const sarEl = document.querySelector(".sar");
+
+      async function getCurrency(apiLink) {
+        try {
+          const response = await fetch(apiLink);
+
+          if (!response.ok) {
+            throw new Error(response.statusText);
+          }
+
+          const data = await response.json();
+          const egpCurrency = data.rates["EGP"];
+          const sarCurrency = data.rates["SAR"];
+
+          egpEl.textContent = Math.round(amountEl.textContent * egpCurrency);
+          sarEl.textContent = Math.round(amountEl.textContent * sarCurrency);
+        } catch (err) {
+          console.log(err);
+        }
+      }
+
+      getCurrency(
+        "https://api.currencyfreaks.com/v2.0/rates/latest?apikey=bcbf967e7aba429eaeb841f82a85c964",
+      );
+    </script>
+  </body>
+</html>

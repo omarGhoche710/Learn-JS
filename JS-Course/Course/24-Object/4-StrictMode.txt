@@ -1,0 +1,95 @@
+/*
+  Strict Mode And This Keyword(
+    - What Is Strict Mode
+    - Enable Strict Mode
+    - this In Strict Mode
+  )
+  
+      1️⃣ What is Strict Mode in JavaScript?
+
+      Strict Mode is a mode in JavaScript that changes some language rules to avoid common mistakes and helps you write safer code.
+      It’s like “strict rules” for your code.
+
+      To enable it:
+
+      "use strict";
+
+      Place this at the top of your file or at the beginning of a function. The code after it will run in strict mode.
+
+      Example:
+
+      // Without strict mode
+      x = 10; // No error, even if x was not declared
+      console.log(x); // 10
+
+      // With strict mode
+      "use strict";
+      y = 20; // ❌ Error: y is not defined
+
+      > In strict mode, you must declare variables (let, const, var) before using them. This helps prevent mistakes.
+
+      2️⃣ Difference between strict and non-strict with apply()
+
+      Example:
+
+      function showThis() {
+        console.log(this);
+      }
+
+      Without strict mode:
+
+      showThis.apply(5); // 5 is not an object
+      // Output: window (in browser) or global object (in Node.js)
+
+      > Reason: In non-strict mode, any primitive value (number, string, boolean) is automatically converted to the global object.
+
+      With strict mode:
+
+      "use strict";
+      showThis.apply(5);
+      // Output: 5
+
+      > Reason: In strict mode, the value stays as it is and is not converted to an object or the global object.
+
+      ✅ Summary
+
+      Mode	Behavior of this
+
+      Strict mode	Keeps the value as is, does not convert primitives to objects
+      Non-strict mode	Converts primitives to object or global object when using apply() or call()
+  EX: 
+        // function returnOb() {
+      //   console.log(this, typeof this); 
+      // }
+
+      // returnOb.apply(5); // Number {} 'Object'
+      // returnOb.apply("HI"); // String {} 'Object'
+      // returnOb.apply(true); // Boolean {} 'Object'
+      // returnOb.apply(null); // Window {} 'Object'
+      // returnOb.apply(undefined); // Window {} 'Object'
+
+      // "use strict";
+      function returnOb() {
+        console.log(this, typeof this); 
+      }
+
+      returnOb.apply(5); // 5 'number'
+      returnOb.apply("HI"); // "Hi" 'String'
+      returnOb.apply(true); // true 'Boolean'
+      returnOb.apply(null); // null 'object'
+      returnOb.apply(undefined); // Undefined 'undefined'
+*/
+
+-------------------------------
+/*
+  Question1: Why we use Strict Method ?
+  // If we set a value for a primitive type
+  // and we use strict method 
+  "use strict";// "use strict" ===> the number is stay 5
+  function setvalue(val) {
+    this.value = val;
+  }
+  let x = 5;
+  setvalue.call(x, 100);// main.js:2467 Uncaught TypeError: Cannot create property 'value' on number '5'
+  // console.log(x);
+*/

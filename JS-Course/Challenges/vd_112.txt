@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learn JavaScript</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      .select-color {
+        width: 400px;
+        padding: 10px;
+        margin: auto;
+        background-color: #ddd;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .select-color div {
+        width: 50px;
+        height: 50px;
+        opacity: 0.5;
+        transition: 0.5s;
+        cursor: pointer;
+      }
+
+      .select-color div:hover {
+        opacity: 1;
+      }
+
+      .select-color .active {
+        opacity: 1;
+      }
+
+      .red {
+        background-color: red;
+      }
+      .green {
+        background-color: green;
+      }
+      .blue {
+        background-color: blue;
+      }
+      .black {
+        background-color: black;
+      }
+
+      .main {
+        width: 600px;
+        height: 400px;
+        margin: 10px auto;
+        background-color: rgb(206, 206, 206);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="select-color">
+      <div class="red"></div>
+      <div class="green"></div>
+      <div class="blue"></div>
+      <div class="black"></div>
+    </div>
+    <div class="main"></div>
+    <script src="js/main.js"></script>
+  </body>
+</html>
+
+_-------------------------------------------_
+
+let mySelectColor = document.querySelector('.select-color');
+let myColors = document.querySelectorAll(".select-color div");
+myMain = document.querySelector('.main');
+
+
+myColors.forEach(e => {
+  e.addEventListener('click', function() {
+    myColors.forEach(e => {
+      e.classList.remove('active');
+    });
+    
+    window.localStorage.setItem('color', this.classList.item(0));
+    myMain.style.backgroundColor = window.localStorage.getItem('color');
+    this.classList.add('active');
+  });
+});
+
+myMain.style.backgroundColor = window.localStorage.getItem('color');

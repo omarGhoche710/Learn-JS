@@ -1,0 +1,81 @@
+/*
+  - Set Data Type
+  Syntax: new Set(Iterable)
+  -- Object To Store Unique Values
+  -- Cannot Access Elements By Index
+
+  Properties:
+  - size
+
+  Methods:
+  - add
+  - delete => return boolean (true, false)
+  - clear
+  - has
+  EX:
+      let myData = [1, 1, 1, 2, 3];
+
+      // --- Add ----
+      // let myUniqueData = new Set(myData);
+      let myUniqueData = new Set();
+      myUniqueData.add(1).add(1).add(1).add(2).add(3);
+
+      // --- Size ---
+      console.log(myUniqueData);
+      console.log(myUniqueData.size);
+
+      // --- Check ---
+      if (myUniqueData.has(3)) {
+        console.log("3 is found")
+      } else {
+        console.log("3 is not found");
+      }
+
+      // --- Access to an element
+      console.log(myUniqueData[0]); // undefined
+      // => Solution : Transform to array
+      myData = [...myUniqueData]; // myData = Array.from(myUniqueData)
+      console.log(myData[0]); 
+
+      // --- Delete ---
+      let checkDelete = myUniqueData.delete(1);
+      console.log(`The data 1 is ${checkDelete ? '' : 'not '}deleted`);
+
+      // --- Clear ---
+      myUniqueData.clear();
+      console.log(myUniqueData);
+
+*/
+
+/*
+    أكيد 👌 هاي **notes صغيرة وسريعة** تحفظها:
+
+  ---
+
+  ### 📝 Notes — Array vs Set (Keys)
+
+  * **Array**:
+    * مبنيّة على **index**
+    * كل عنصر إلو key (0, 1, 2…)
+    * لذلك فيها `keys()`
+
+  * **Set**:
+
+    * مبنيّة على **values فقط**
+    * القيمة نفسها هي الهوية
+    * ما في keys حقيقية
+
+  * بالـ **Set**:
+
+    * `keys()` = `values()`
+    * موجودة فقط للتوافق مع `Map`
+
+  ---
+
+  ### 🔑 جملة تحفظها:
+
+  **Array = index-based**
+  **Set = value-based**
+
+  ---
+*/

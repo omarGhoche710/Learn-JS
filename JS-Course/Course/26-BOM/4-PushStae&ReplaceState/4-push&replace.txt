@@ -1,0 +1,18 @@
+/*
+  pushState() + replaceState()
+
+  - History API Methods To Manipulate The Browser History Without
+  Reloading The Page
+  - pushState(state, title, url)
+  - replaceState(state, title, url)
+
+  {
+    state: data sended [Object],
+    title: Not recommend [we can use document.title],
+    url: url [we can't change the domain(protocol, hostname)]
+  }
+
+  - To Bring The State Data
+  EX:
+    console.log(history.state);
+*/

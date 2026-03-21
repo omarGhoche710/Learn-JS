@@ -1,0 +1,27 @@
+function detectBruteForce(logs) {
+    // track consecutive failures per IP
+    // 3+ in a row without success = suspicious
+    let bruteForce =[];
+    let myMap = new Map();
+    
+    logs.forEach((el) => {
+      const info = el.split(" ");    
+      const [ip, state] = info;
+      
+      if (myMap.has(ip) && state === "LOGIN_FAIL") {
+        myMap.set(ip, myMap.get(ip) + 1);
+      } else if (state === "LOGIN_SUCCESS") {
+        myMap.delete(ip);
+      } else {
+        myMap.set(ip, 1);
+      }
+    });
+    
+    myMap.forEach((el, key) => {
+      if (el >= 3) {
+        bruteForce.push(key);
+      }
+    });
+    
+    return bruteForce.sort();
+}

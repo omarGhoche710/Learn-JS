@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Favorite Icon Toggler</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f5f5f5;
+        padding: 40px;
+      }
+
+      h2 {
+        text-align: center;
+      }
+
+      .item-list {
+        list-style: none;
+        padding: 0;
+        max-width: 300px;
+        margin: auto;
+      }
+
+      .item-list li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: white;
+        padding: 12px 16px;
+        margin-bottom: 10px;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .favorite-icon {
+        background: none;
+        border: none;
+        font-size: 22px;
+        cursor: pointer;
+        transition:
+          transform 0.2s ease,
+          color 0.2s ease;
+      }
+
+      .favorite-icon:hover {
+        transform: scale(1.2);
+      }
+
+      /* الحالة المفعلة */
+      .filled {
+        color: red;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h2>My Favorite Items</h2>
+
+    <ul class="item-list">
+      <li>
+        Pizza
+        <button class="favorite-icon">♡</button>
+      </li>
+
+      <li>
+        Coffee
+        <button class="favorite-icon">♡</button>
+      </li>
+
+      <li>
+        Music
+        <button class="favorite-icon">♡</button>
+      </li>
+    </ul>
+
+    <script>
+      const toggleText = {
+        "♡": "❤",
+        "❤": "♡",
+      };
+
+      const listItems = document.querySelector(".item-list");
+      const favoriteIcons = listItems.querySelectorAll(".favorite-icon");
+
+      favoriteIcons.forEach((icon) => {
+        icon.addEventListener("click", (e) => {
+          toggleIcon(e.target);
+        });
+      });
+
+      function toggleIcon(icon) {
+        let iconText = icon.textContent;
+        icon.textContent = toggleText[iconText];
+
+        icon.classList.toggle("filled");
+      }
+    </script>
+  </body>
+</html>

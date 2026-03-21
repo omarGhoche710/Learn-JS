@@ -1,0 +1,52 @@
+  Variable Scope Drama (
+    - Global Scope (
+      var x = 1;    // Global scope
+      let y = 2;    // Global scope
+      const z = 3;  // Global scope
+
+      Example:
+        let carName = "Volvo";
+        // code here can use carName
+
+        function myFunction() {
+        // code here can also use carName
+        }
+    )
+
+    - Function Scope (
+      function myFunction1() {
+        var carName = "Volvo";  // Function Scope
+      }
+
+      function myFunction2() {
+        let carName = "Volvo";  // Function Scope
+      }
+
+      function myFunction3() {
+        const carName = "Volvo";  // Function Scope
+      }
+      Example: 
+         // code here can NOT use carName
+        function myFunction() {
+          let carName = "Volvo";
+          // code here CAN use carName
+        }
+        // code here can NOT use carName
+      )
+
+    - Block Scope (
+      If We have Block the variable defined inside it shoud not
+      be accessed outside it.The [var] allow that but not in 
+      [let] and [const]
+      Example:
+        {
+          let x = 2;
+        }
+        // x can NOT be used here
+
+        {
+          var x = 2;
+        }
+        // x CAN be used here
+    )
+  )

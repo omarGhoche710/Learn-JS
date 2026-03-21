@@ -1,0 +1,78 @@
+  Number( 
+    - Double Precision
+    - Syntactic Sugar "_" => the JS ignore the underscore between the numbers
+    - e => console.log(1e6); // 1 * 10^6
+    - ** => Exposant
+    - Number + BigInt  
+    - Number Max Number => Number.MAX_VALUE
+    - Number Min Number => Number.MIN_VALUE
+    - Number Safe Integer Max => Number.MAX_SAFE_INTEGER
+    - Number Safe Integer Min => Number.MIN_SAFE_INTEGER
+
+    note: - Number => It's a function that has caracteristiques
+            ex: Number.MAX_VALUE, Number.MIN_VALUE
+          - Number safe integer => It's the integer that can be
+            accurately represented and compared in JS
+            ex: if we compared between two numbers that exceed
+                the safe integer limit it will give wrong result
+                because that we have to use BigInt for that
+          - BigInt => It's a special type of number that can
+                      represent integers with arbitrary precision.
+
+  )
+*/
+
+/*
+  Number AS A Function(
+    let x = Number("123");
+    console.log(x); // 123
+  )
+
+  Number As An Object (
+    let y = new Number("123");
+    console.log(y); // Number {123}
+  )
+*/
+
+/*
+  Number Methods(
+    - toString() => Convert Number To String
+    - toFixed() => Format Number To Specific Decimal Places and convert it to String
+    - parseInt() => Convert String To Integer Number
+    - parseFloat() => Convert String To Float Number
+    - isInteger() => Check If The Number Is Integer or Not (Return Boolean)
+    - isNaN() => Check If The Value Is NaN or Not (Return Boolean)
+                [value is NaN when we do an invalid mathematical operation]
+      
+    Ex:
+      console.log((100).toString());
+      console.log(100..toString());
+      console.log(100.55555.toFixed(2)); // If the next number is > than 4 we
+                                            increase the current value a one
+      console.log(parseInt("100 Osama")); // 100[just if the number is the fisrt], but if we use number or +, it will
+                                            return NaN
+      console.log(Number.isInteger(100));
+      console.log(Number.isNaN("osama" / 2)); // true
+
+    EX:
+    function addition(a, b) {
+      if(Number.isNaN(+a) || Number.isNaN(+b)) {
+        return "youl will be enter numbers";
+      }
+      return +a + +b;
+    }
+
+    let result = addition("omar", 7);
+    console.log(result);
+
+    Difference Between Number.isNaN() And Global isNaN():
+      - Number.isNaN() => It Doesn't Perform Type Coercion
+      - Global isNaN() => It Perform Type Coercion
+
+      console.log(Number.isNaN("Hello")); // false
+      console.log(isNaN("Hello")); // true
+
+      if we want to make the first like the second we have to do:
+      console.log(Number.isNaN(+ "Hello")); // true
+
+  )

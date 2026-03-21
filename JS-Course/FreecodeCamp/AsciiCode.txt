@@ -1,0 +1,49 @@
+let letter = "A";
+console.log(letter.charCodeAt(0));  // 65
+
+let symbol = "!";
+console.log(symbol.charCodeAt(0));  // 33
+
+
+let char = String.fromCharCode(65);
+console.log(char);  //  A
+
+
+let char = String.fromCharCode(97);
+console.log(char);  // a
+
+EX:
+// To check if the letter is upper
+let c = 'G';
+let ascii = c.charCodeAt(0);
+
+if (ascii >= 65 && ascii <= 90) {
+    console.log("Uppercase");
+} else {
+    console.log("Not uppercase");
+}
+
+
+// To convert a letter to uppercase
+
+let c = 'F';
+let ascii = c.charCodeAt(0);
+
+if (ascii >= 65 && ascii <= 90) {
+  console.log("Uppercase");
+} else {
+  console.log("Not uppercase, your letter will be converted to upper");
+  c = String.fromCharCode(ascii - 32);
+  console.log(c);
+}
+
+// to prevent if the user enter a number
+
+document.getElementById("name").addEventListener("keypress", function(e) {
+    let code = e.key.charCodeAt(0); // e key that you pressed
+
+    // اذا الرقم بين 48 و 57 يعني user ضغط رقم
+    if (code >= 48 && code <= 57) {
+        e.preventDefault(); // don't allow to enter a value
+    }
+});

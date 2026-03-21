@@ -1,0 +1,27 @@
+
+function pyramid(pattern, rows, isInverted) {
+  return isInverted
+    ? invertedPyramid(pattern, rows)
+    : standardPyramid(pattern, rows);
+}
+
+function standardPyramid(pattern, rows) {
+  let result = "";
+  for (let i = 1; i <= rows; i++) {
+    result += " ".repeat(rows - i);
+    result += pattern.repeat(2 * i - 1);
+    result += "\n";
+  }
+  return result;
+}
+function invertedPyramid(pattern, rows) {
+  let result = "";
+  for (let i = rows; i > 0; i--) {
+    result += " ".repeat(rows - i);
+    result += pattern.repeat(2 * i - 1);
+    result += "\n";
+  }
+  return result;
+}
+
+console.log(pyramid("*", 3, false));

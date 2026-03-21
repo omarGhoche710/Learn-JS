@@ -1,0 +1,70 @@
+[
+  {
+    "id": 1,
+    "author": "Ahmed",
+    "category": "comedy",
+    "title": "Coo Coo",
+    "content": "Lorem ipsum dolor sit amet"
+  },
+  {
+    "id": 2,
+    "author": "Sara",
+    "category": "technology",
+    "title": "Future AI",
+    "content": "AI is changing the world rapidly"
+  },
+  {
+    "id": 3,
+    "author": "Omar",
+    "category": "sports",
+    "title": "Football News",
+    "content": "Latest football updates"
+  }
+]
+------------------
+
+
+const req = new XMLHttpRequest();
+req.open("get", "articles.json");
+req.send();
+
+req.onreadystatechange = function () {
+  if (this.readyState === 4 && this.status === 200) {
+    const mainData = JSON.parse(this.responseText);
+    const mainDiv = document.createElement("div");
+    mainDiv.id = "data";
+    for (let a of mainData) {
+      const article = createArticle(a);
+      mainDiv.append(article);
+    }
+    document.body.append(mainDiv);
+
+    // const updatedData = JSON.stringify(mainData);
+    // console.log(updatedData);
+  }
+};
+
+// ✅ الرسالة بعد انتهاء العملية بالكامل
+req.onloadend = function () {
+  console.log("Data Loaded");
+};
+
+function createArticle({ title, content, author, category }) {
+  const div = document.createElement("div");
+  const titleEl = document.createElement("h2");
+  const contentEl = document.createElement("p");
+  const authorEl = document.createElement("p");
+  const categoryEl = document.createElement("p");
+
+  titleEl.textContent = title;
+  contentEl.textContent = content;
+  authorEl.textContent = `Author: ${author}`;
+  categoryEl.textContent = `Category: ${category}`;
+
+  div.append(titleEl);
+  div.append(contentEl);
+  div.append(authorEl);
+  div.append(categoryEl);
+
+  return div;
+}

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculate Age In Years, Days And Hours</title>
+  </head>
+  <body>
+    <input type="date" id="birthday" />
+    <button id="btnCalculate">Calculate</button>
+    <div id="result"></div>
+    <script>
+      const btnCalculate = document.getElementById("btnCalculate");
+      
+      btnCalculate.addEventListener("click", function () {
+        const now = new Date();
+        const birthday = new Date(document.getElementById("birthday").value);
+        const result = document.getElementById("result");
+        
+        if (isNaN(birthday.getTime())) {
+          result.innerHTML = "Invalid Date";
+          return;
+        }
+
+        if (birthday > now) {
+          result.innerHTML = "Birthday cannot be in the future";
+          return;
+        }
+
+        const ageInYears = getAgeInYears(now, birthday);
+        const ageInDays = getAgeInDays(now, birthday);
+        const ageInHours = getAgeInHours(now, birthday);
+
+        result.innerHTML = `
+          <div> 
+            <span>Age In Years: ${ageInYears}</span>
+            <span>Age In Days: ${ageInDays}</span>
+            <span>Age In Hours: ${ageInHours}</span>
+          </div>
+        `;
+      });
+
+      function getAgeInYears(now, date) {
+        return Math.floor((now - date) / 1000 / 60 / 60 / 24 / 365);
+      }
+
+      function getAgeInDays(now, date) {
+        return Math.floor((now - date) / 1000 / 60 / 60 / 24);
+      }
+      function getAgeInHours(now, date) {
+        return Math.floor((now - date) / 1000 / 60 / 60);
+      }
+    </script>
+  </body>
+</html>

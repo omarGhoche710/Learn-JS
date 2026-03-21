@@ -1,0 +1,74 @@
+/*
+  Dynamic Scope And Legacy Scope(
+    - This has A Dynamic Scope.
+  )
+  EX:
+      // const user = {
+      //   name: "mostafa",
+      //   age: 20,
+      //   showUser() {
+      //     console.log(this); // user Object
+      //     var anotherFuntion = function() {
+      //       console.log(this); // Window Object
+      //     };
+      //     anotherFuntion();
+      //   }
+      // };
+      
+      /// The Solution:
+      // user.showUser();
+      // const user = {
+      //   name: "mostafa",
+      //   age: 20,
+      //   showUser() {
+      //     console.log(this); // user Object
+      //     var self = this;
+      //     var anotherFuntion = function() {
+      //       console.log(self); // user Object
+      //     };
+      //     anotherFuntion();
+      //   }
+      // };
+
+      //Or (Convert the anonyous Function To Arrow Function)
+      // const user = {
+      //   name: "mostafa",
+      //   age: 20,
+      //   showUser() {
+      //     console.log(this); // user Object
+      //     var anotherFuntion = () => {
+      //       console.log(this); // user Object
+      //     };
+      //     anotherFuntion();
+      //   }
+      // };
+      // user.showUser();
+
+      // Or (Use Bind Method)
+      // The Bind Method Return A Function That below to And Object
+      // const user = {
+      //   name: "mostafa",
+      //   age: 20,
+      //   showUser() {
+      //     console.log(this); // user Object
+      //     var anotherFuntion = function() {
+      //       console.log(this); // user Object
+      //     }.bind(this);
+      //     anotherFuntion();
+      //   }
+      // };
+      // user.showUser();
+
+      // EX ON Bind
+      function sayName() {
+        return this.name;
+      }
+
+      let user = {
+        name: "Omar",
+      };
+
+      const boundFn = sayName.bind(user);
+
+      console.log(boundFn());
+*/

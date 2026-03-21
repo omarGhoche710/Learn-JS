@@ -1,0 +1,50 @@
+/*
+  DOM [Deal With Childrens]
+  - children => Just the Elements
+  - childNodes => Everything (Elements, Text, Comments)
+  - firstChild => Everything (Elements, Text, Comments)
+  - lastChild => Everything (Elements, Text, Comments)
+  - firstElementChild  => Just the Elements
+  - lastElementChild => Just the Elements
+
+  EX: 
+    <div><!-- Osama -->Hello Div<p>Hello P</p><span>Hello Span</span><!-- Comment -->Hello</div>
+    ---------------------------------------------
+    let myElement = document.querySelector("div");
+
+    console.log(myElement);
+    console.log(myElement.children);
+    console.log(myElement.children[0]);
+    console.log(myElement.childNodes);
+    console.log(myElement.childNodes[0]); }
+
+    console.log(myElement.firstChild);
+    console.log(myElement.lastChild);
+
+    console.log(myElement.firstElementChild)
+    console.log(myElement.lastElementChild)
+*/
+
+
+EX:
+let div = document.getElementById('box');
+// console.log(div.children.length);
+// console.log(div.childNodes.length);
+// console.log(div.lastChild.nodeName);
+// console.log(div.lastElementChild.tagName);
+
+for (let i = 0; i < div.childNodes.length; i++) {
+    const node = div.childNodes[i];
+
+  if (node.nodeType === 1) {
+    console.log("Element:", node.nodeName);
+  } else if (node.nodeType === 3) {
+    console.log("Text");
+  } else if (node.nodeType === 8) {
+    console.log("Comment");
+  }
+}
+
+for (let i = 0; i < div.children.length; i++) {
+  console.log(div.children[i].tagName);
+}

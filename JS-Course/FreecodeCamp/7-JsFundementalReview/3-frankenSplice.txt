@@ -1,0 +1,11 @@
+function frankenSplice(arr1, arr2, i) {
+  let left = arr2.slice(0, i);
+  let right = arr2.slice(i);
+
+  return [
+    ...left,
+    ...arr1,
+    ...right
+  ]
+};
+console.log(frankenSplice([1, 7], [1, 2, 4, 5, 9], 2));

@@ -1,0 +1,64 @@
+/*
+
+  Destructuring
+  " is a JavaScript expression that allows us to extract data from arrays,
+    objects, and maps and set them into new, distinct variables. "
+  - Destructuring Array
+
+  EX:
+        let a = 1;
+        let b = 2;
+        let c = 3;
+        let d = 4;
+        let f = 6;
+
+        let myFriends = ["Ahmed", "Sayed", "Ali", "Maysa"];
+
+        [a, b, c, d = "karim", e = "Omar", f] = myFriends;
+
+        console.log(a);
+        console.log(b);
+        console.log(c);
+        console.log(d); // Ignore The Default Value
+        console.log(e); // Default Value => Omar
+        console.log(f); // undefined Because it is reassigned with a new Value
+        IF the value is undefined it will take the default value (By default the default value is undefined)
+
+        // --- How Can I Ignore An Element In The Array ---
+
+        [a, b, , d] = myFriends;
+
+        console.log(a);
+        console.log(b);
+        console.log(d);
+
+*/
+
+/*
+  Destructuring
+  - Destructuring Array Advanced Examples
+
+  EX:
+    let myFriends = ["Ahmed", "Sayed", "Ali", ["Shady", "Amr", ["Mohamed", "Gamal"]]];
+
+    let [ , , , [a, , [ , b]]] =  myFriends;
+
+    console.log(a); // Shady
+    console.log(b); // Gamal
+*/
+
+/*
+  Destructuring
+  - Destructuring Array => Swapping Variables
+  - we replace the temp Method with By This Method
+
+  EX:
+      let book = "Video";
+      let video = "Book";
+
+      [video, book] = [book, video];
+
+      console.log(video);
+      console.log(book);
+
+*/

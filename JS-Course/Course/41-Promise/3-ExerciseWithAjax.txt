@@ -1,0 +1,51 @@
+const myPromise = new Promise((resolve, reject) => {
+  let req = new XMLHttpRequest();
+  req.open("get", "tasks.json");
+  req.send();
+
+  req.onload = () => {
+    if (req.status === 200) {
+      resolve(JSON.parse(req.responseText));
+    } else {
+      reject('Server Error');
+    }
+  }
+
+  req.onerror = () => reject('Network Error');
+  // Not Reach to state 4
+});
+
+myPromise
+  .then(data => console.log(data))
+  .catch(err => console.log(err))
+  .finally(() => console.log("Request Finished"))
+
+----------------
+
+function getData(apilink) {
+  return new Promise((resolve, reject) => {
+    let req = new XMLHttpRequest();
+    req.open("get", apilink);
+    req.send();
+
+    req.onload = () => {
+      if (req.status === 200) {
+        resolve(JSON.parse(req.responseText));
+      } else {
+        reject("Server Error");
+      }
+    };
+
+    req.onerror = () => reject("Network Error");
+    // Not Reach to state 4
+  });
+}
+
+getData('tasks.json')
+  .then((data) => {
+    data.length = 2;
+    return data;
+  })
+  .then((data) => console.log(data))
+  .catch((err) => console.log(err))
+  .finally(() => console.log("Request Finished"));

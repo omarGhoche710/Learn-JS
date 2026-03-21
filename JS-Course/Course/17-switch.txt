@@ -1,0 +1,35 @@
+/*
+  Switch Statement (
+    switch(expression) {
+      case x:
+        // code block
+        break;
+      case y:
+        // code block
+        break;
+      default:
+        // code block
+    }
+    - Default Ordering
+    - Multiple Matches
+    - ===
+
+    EX:
+      let day = 0;
+      switch(day) {
+        case 0: 
+          console.log("Saturday");
+          break;
+        // case 0: console.log("Sunday");
+        //         break;
+        case 1:
+          console.log("Sunday");
+          break;
+        case 2: 
+        // case 3:
+          console.log("Monday");
+          break;
+        default:
+          console.log('Unknown Day');
+      }
+)

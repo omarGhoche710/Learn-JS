@@ -1,0 +1,129 @@
+<!-- <!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learn JavaScript</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      body {
+        font-family: "Open Sans", sans-serif;
+        background-color: red;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <p>Whereas disregard and contempt for human rights have resulted</p>
+    <select id="font-family" data-info="font-family">
+      <option value="Open Sans">Open Sans</option>
+      <option value="Cairo">Cairo</option>
+      <option value="Roboto">Roboto</option>
+    </select>
+    <select id="color" data-info="background-color">
+      <option value="red">Red</option>
+      <option value="green">Green</option>
+      <option value="blue">Blue</option>
+      <option value="black">Black</option>
+      <option value="orange">Orange</option>
+    </select>
+    <select id="font-size" data-info="font-size"></select>
+    <script src="js/main.js"></script>
+    <script>
+      function font_size_options(font_size) {
+        for (let i = 16; i <= 30; i++) {
+          let option = document.createElement("option");
+          option.value = i;
+          option.innerHTML = i;
+
+          font_size.append(option);
+        }
+      }
+
+      function checkFontSize(id) {
+        if (id === "font-size") {
+          return "px";
+        } else {
+          return "";
+        }
+      }
+
+      function setStyle(cmb) {
+        cmb.addEventListener("change", function () {
+          // console.log(this.value);
+          window.localStorage.setItem(cmb.dataset.info, this.value);
+          document.body.style.cssText += `${cmb.dataset.info}: ${this.value}${checkFontSize(cmb.id)}`;
+
+        });
+      }
+
+      function checkStyle(cmb) {
+        if (window.localStorage.getItem(cmb.dataset.info)) {
+          // Set the style in the body
+          document.body.style.cssText += `${cmb.dataset.info}: ${window.localStorage.getItem(cmb.dataset.info)}${checkFontSize(cmb.id)}`;
+
+          // Set selcted true for element in storage
+          document.querySelector(`#${cmb.id} option[value = "${window.localStorage.getItem(cmb.dataset.info)}"]`).selected = true;
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        let font_size = document.getElementById("font-size");
+        let color = document.getElementById("color");
+        let font_family = document.getElementById("font-family");
+
+        font_size_options(font_size);
+
+        checkStyle(font_family);
+        checkStyle(color);
+        checkStyle(font_size);
+
+        setStyle(font_family);
+        setStyle(color);
+        setStyle(font_size);
+      });
+    </script>
+  </body>
+</html> -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learn JavaScript</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <form id="form">
+      <input type="text" id="name">
+      <input type="password" name="" id="pwd">
+      <input type="date" id="date">
+      <select id="skills">
+        <option value="html">Html</option>
+        <option value="CSS">CSS</option>
+        <option value="JS">JS</option>
+        <option value="PHP">PHP</option>
+        <option value="Python">Python</option>
+      </select>
+    </form>
+    <script src="js/main.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        
+      });
+    </script>
+  </body>
+</html>

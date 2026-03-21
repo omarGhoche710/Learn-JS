@@ -1,0 +1,66 @@
+
+const balloons = ["w", "b", "g", "r", "W", "B", "G", "R"];
+const effects = {
+  b: "w",
+  g: "ww",
+  r: "bb",
+  W: "w*",
+  B: "b*",
+  G: "g*",
+  R: "r*",
+  "b*": "W",
+  "g*": "WW",
+  "r*": "BB",
+};
+
+function solve(s, n, k) {
+  if (!validateText(s) || !validateArrows(n) || !validateSteps(k)) {
+    return;
+  }
+
+  if (n === 0 || k === 0) {
+    return s;
+  }
+
+  let myString = s;
+  let result = "";
+
+  for (let i = 0; i < k; i++) {
+    result = "";
+    for (let j = myString.length - 1; j <= myString.length - n; j--) {
+      if (myString[j] === "w" || myString[j - 1] + myString[j] === "w*")
+        continue;
+      if (myString[j] === "*") {
+        result += effects[myString[j - 1] + myString[j]];
+        j--;
+        continue;
+      }
+
+      result += effects[myString[j]];
+      myString = result;
+    }
+  }
+
+  return result.split("").reverse().join("");
+}
+
+function validateText(text) {
+  if (text.length === "" || text.length > 200) {
+    return false;
+  }
+
+  if (!text.split("").every((ch) => balloons.includes(ch))) {
+    return false;
+  }
+  return true;
+}
+
+function validateArrows(arrows) {
+  return arrows >= 0 && arrows <= 8;
+}
+
+function validateSteps(steps) {
+  return steps >= 0 && steps <= 1000;
+}
+
+console.log(solve("wbb", 3, 1))

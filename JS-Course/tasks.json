@@ -1,0 +1,5 @@
+[
+  { "id": 1, "task": "Study JavaScript", "done": false },
+  { "id": 2, "task": "Go to gym", "done": true },
+  { "id": 3, "task": "Buy groceries", "done": false }
+]

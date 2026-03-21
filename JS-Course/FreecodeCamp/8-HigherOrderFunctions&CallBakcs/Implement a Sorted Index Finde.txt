@@ -1,0 +1,5 @@
+function getIndexToIns(arr, number) {
+  const sortedArray = arr.sort((a, b) => a - b);
+  const index = sortedArray.findIndex(num => num >= number);
+  return index === -1 ? sortedArray.length : index;
+}

@@ -1,0 +1,36 @@
+/*
+  Array Challenge
+*/
+
+let zero = 0;
+
+let counter = 3;
+
+let my = ["Ahmed", "Mazero", "Elham", "Osama", "Gamal", "Ameer"];
+
+// // Write Code Here
+// // my.pop();
+// // my.pop();
+// // my.reverse();
+
+// console.log(my); // ["Osama", "Elham", "Mazero", "Ahmed"];
+
+// let elhamMazero = my.slice(-counter, counter - my.length);
+// console.log(elhamMazero); // ["Elham", "Mazero"]
+
+// let elzero = elhamMazero[zero].slice(zero, -counter) + my[elhamMazero.length].slice(elhamMazero.length);
+// console.log(elzero); // "Elzero"
+
+// console.log(elzero.charAt(elhamMazero.length + elhamMazero.length) + elzero.charAt(elhamMazero.length + counter).toUpperCase()); // "rO"
+
+// Second method
+let x = my.indexOf("Mazero");
+my = my.slice(zero, counter + x).reverse();
+
+console.log(my); // ["Osama", "Elham", "Mazero", "Ahmed"];
+
+console.log(my.slice(x, counter)); // ["Elham", "Mazero"]
+
+console.log(my[x].slice(zero, counter - x).concat(my[counter - x].slice(counter - x))) // "Elzero"
+
+console.log(my[counter - x].substr(counter + x, x) + my[counter - x].substr(-x).toUpperCase()); // "rO"

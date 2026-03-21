@@ -1,0 +1,149 @@
+/*
+  Loop
+  - For (
+    - ([1] Initial Expression; [2] Condition; [3] Increment Expression) {
+        // code block to be executed
+      }
+    
+    Example:
+    let myFriends = [1, 2, "Osama", "Ahmed", "Ali", "Amira"];
+    let onlyName = [];
+    for (let i = 0; i <= myFriends.length; i++) {
+      if (typeof myFriends[i] === "string") {
+        onlyName.push(myFriends[i]);
+      }
+    }
+    console.log(onlyName);
+    
+  )
+  EX:
+    let array = ['omar', 1, 2, "Omar", 4, 5, "Omal"];
+
+    let j = 0;
+    for (let i = 0; i < array.length; i++) {
+      if (typeof array[i] === "number") {
+        continue;
+      }
+      array[j] = array[i];
+      j++;
+    }
+    console.log(j);
+    array.splice(j, array.length - j);
+    console.log(array);
+*/
+
+/*
+  Loop
+  - Nested Loops
+
+  Ex:
+    let products = ["Keyboard", "Mouse", "Pen", "Pad", "Monitor"];
+    let colors = ["Red", "Green", "Black"];
+    let models = [2020, 2021];
+    for (let i = 0; i < products.length; i++) {
+      console.log("#".repeat(15));
+      console.log(`# ${products[i]}`);
+      console.log("#".repeat(15));
+      console.log("Colors: ");
+      for(let j = 0; j < colors.length; j++) {
+        console.log(`- ${colors[j]}`);
+      }
+      console.log("Models: ");
+      for(let k = 0; k < models.length; k++) {
+        console.log(`- ${models[k]}`);
+      }
+    }
+
+*/
+
+/*
+  Loop Control
+  - Break
+  - Continue
+  - Label
+
+// let products = ["Keyboard", "Mouse", 10, 20, "Pen", "Pad",30, 40, "Monitor"];
+let products = ["Keyboard", "Mouse", "Pen", "Pad", "Monitor"];
+let colors = ["Red", "Green", "Black"];
+
+for (let i = 0; i < products.length; i++) {
+  console.log(products[i]);
+  if (products[i] === "Pen") break;
+}
+
+for (let i = 0; i < products.length; i++) {
+  if (typeof products[i] === "number") continue;
+  console.log(products[i]);
+}
+this method will everything but no number
+
+for (let i = 0; i < products.length; i++) {
+  if (typeof products[i] === "string") {
+    console.log(products[i]);
+  }
+}
+This method will print just the string
+
+mainLoop: for (let i = 0; i < products.length; i++) {
+  console.log(products[i]);
+  nestedLoop: for (let j = 0; j <= colors.length; j++) {
+    console.log(`- ${colors[j]}`);
+    if (colors[j] === "Green") {
+      break mainLoop;
+    }
+  }
+}
+*/
+
+/*
+Practice – Add Products To Page:
+    let products = ["Keyboard", "Mouse", "Pen", "Pad", "Monitor", "iPhone"];
+    let colors = ["Red", "Green", "Black"];
+    let showCount = 3;
+
+    document.write(`<h1>Show ${showCount} Products</h1>`);
+
+    for (let i = 0; i < showCount; i++) {
+      document.write("<div>");
+      document.write(`<h3>[${i + 1}] ${products[i]}</h3>`);
+      for (let j = 0; j < colors.length; j++) {
+        document.write(`<p>${colors[j]}</p>`);
+      }
+      document.write(`<p>${colors.join(' | ')}`);
+      document.write("</div>");
+    }
+*/
+
+/* 
+  While (condition) {
+  }
+  Ex:
+    let products = ["Keyboard", "Mouse", "Pen", "Pad", "Monitor", "iPhone"];
+
+    let i = 0;
+    while (i < products.length) {
+      console.log(products[i]);
+      if (products[i] === "Pad") {
+        break;
+      }
+      i++;
+    }
+*/
+
+/*
+  do {
+  } while (condition)
+
+  EX:
+    let products = ["Keyboard", "Mouse", "Pen", "Pad", "Monitor", "iPhone"];
+
+    let i = 0;
+    do {
+      console.log(products[i]);
+      if (products[i] === "Pad") {
+        break;
+      }
+      i++;
+    } while(false);
+
+*/

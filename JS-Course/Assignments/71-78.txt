@@ -1,0 +1,88 @@
+1)
+let mix = [1, 2, 3, "E", 4, "l", "z", "e", "r", 5, "o"];
+
+let result = mix
+  .map((ele) => (isNaN(parseInt(ele)) ? ele : ""))
+  .reduce((acc, current) => acc + current);
+
+console.log(result);
+// Elzero
+
+--------------------------------------
+2) 
+solution 1:
+// let myString = "EElllzzzzzzzeroo";
+
+// let result = myString
+//   .split("")
+//   .filter((ele, i, arr) => ele !== arr[i + 1])
+//   .reduce((acc, current) => acc + current);
+
+// console.log(result);
+// // Elzero
+
+solution 2:
+// let myString = "EllerooEllzzeroo";
+
+// let result = myString
+//   .split("")
+//   .filter((ele, i, arr) => {
+//     for (let j = i + 1; j < arr.length; j++) {
+//       if (ele === arr[j]) return false;
+//     }
+//     return true;
+//   })
+//   .reduce((acc, current) => acc + current);
+
+// console.log(result);
+
+solution 3:
+
+let myString = "EllzerooEllzzeroo";
+
+let result = myString
+  .split("")
+  .filter((ele, i, arr) => arr.indexOf(ele) === i)
+  .reduce((acc, current) => acc + current);
+
+console.log(result);
+-----------------------------------------
+3)
+
+// it work with nested arrays
+let myArray = ["E", "l", "z", ["e", "r"], "o"];
+// let result = myArray
+//   .join("")
+//   .split("")
+//   .filter((ele) => ele !== ",")
+//   .reduce((acc, current) => acc + current);
+
+// Just One Level
+// let result = myArray
+//   .reduce((acc, current) => acc.concat(current), []);
+
+// With Flat
+let result = myArray.flat(Infinity).join(""); // flat(Infinity) => Returns a new array with all sub-array elements concatenated into
+                                            //  it recursively up to the specified depth.[Infinity => all]
+console.log(result);
+--------------------------------------------
+4)
+let numsAndStrings = [1, 10, -10, -20, 5, "A", 3, "B", "C"];
+
+let result = numsAndStrings
+  .filter((ele) => typeof ele === "number")
+  .map((ele) => -ele);
+
+console.log(result);
+// [-1, -10, 10, 20, -5, -3]
+-----------------------------------------------
+5)
+let nums = [2, 12, 11, 5, 10, 1, 99];
+
+let result = nums.reduce(
+  (acc, current) => (current % 2 !== 0 ? acc + current : acc * current),
+  1
+);
+
+console.log(result);
+// 500

@@ -1,0 +1,29 @@
+/*
+  DOM [Class List]
+  - classList
+  --- length
+  --- contains
+  --- item(index)
+  --- add
+  --- remove
+  --- toggle
+  
+  EX:
+    <div id="my-div" class="one two show test">Div With Many Classes</div>
+    <button id="btn">Show</button>
+
+      let element = document.getElementById("my-div");
+
+      console.log(element.classList);
+      console.log(typeof element.classList); // Object
+      console.log(element.classList.contains("osama"));// false
+      console.log(element.classList.contains("show"));// true
+      console.log(element.classList.item("0"));
+      console.log(element.classList.item("3"));
+
+      element.onclick = function() {
+        // this.classList.add("add-one", "add-two"); // Many Parameters
+        // this.classList.remove("one", "two"); // Many Parameters
+        this.classList.toggle("one");// One Parameter
+      }
+*/

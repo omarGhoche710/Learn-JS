@@ -1,0 +1,80 @@
+/*
+  Object
+  - Create Object With Assign Method
+  - assign(target, ...sources) => The Target is the Obeject
+  That i want to Copy the properties from the sources for it.
+  Ex:
+      let obj1 = {
+        prop1: 1,
+        meth1: function () {
+          return this.prop1;
+        },
+      };
+
+      let obj2 = {
+        prop2: 2,
+        meth2: function () {
+          return this.prop2;
+        },
+      };
+
+
+      let targetObject = {
+        prop1: 100,
+        prop3: 3,
+      };
+
+      let finalObject = Object.assign(targetObject, obj1, obj2);
+      // the same property will be overrided
+
+      finalObject.prop1 = 200;
+      finalObject.prop4 = 4;
+
+      console.log(finalObject);
+
+      let newObject = Object.assign({}, obj1, { prop5: 5, prop6: 6 });
+
+      console.log(newObject);
+*/
+
+/* 
+  Difference Between Create And Assign(
+    const proto = { x: 1 };
+    
+    const a = Object.create(proto);
+    const b = Object.assign({}, proto);
+    
+    proto.x = 99; // Change The Value Of x in the Prototype
+    
+    console.log(a.x); // 99 (Inheritance)
+    console.log(b.x); // 1 (Copy)
+  )
+*/
+----------------------
+Big EX:
+
+const defaultSettings = {
+  theme: "light",
+  language: "en",
+  notifications: true
+};
+
+let array = Object.keys(defaultSettings);
+
+function createUserSettings(userSettings) {
+  for (let key in userSettings) {
+    if (!array.includes(key)) {
+      return false;
+    }
+  }
+  return Object.assign({}, defaultSettings, userSettings);
+}
+let userSetting = createUserSettings({theme: "black"});
+if (userSetting) {
+  console.log("Created successfully");
+  console.log(userSetting.theme);
+  console.log(userSetting.language);
+  console.log(userSetting.notifications);
+} else {
+  console.log("Error...")
+}

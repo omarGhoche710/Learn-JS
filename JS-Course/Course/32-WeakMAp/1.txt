@@ -1,0 +1,41 @@
+
+/*
+  - Map vs WeakMap
+  "
+    WeakMap Allows Garbage Collector To Do Its Task But Not Map.
+  "
+  --
+  Map     => Key Can Be Anything
+  WeakMap => Key Can Be Object Only
+  --
+  EX:
+        // --- Map ---
+        let myUserMap = {
+          name: "Omar",
+          age: 20
+        };
+
+        let myMap = new Map([
+          [myUserMap, "Object Value"]
+        ]);
+
+        myUserMap = null; // Override the reference
+
+        console.log(myMap); // No changing
+
+        // --- WeakMap ---
+
+        let myUserWMap = {
+          name: "Omar",
+          age: 20
+        };
+
+        let myWMap = new WeakMap([
+          [myUserWMap, "Object Value"]
+        ]);
+
+        myUserWMap = null; // Override the reference
+
+        console.log(myWMap); // There is changing but we can't catch that
+
+*/

@@ -1,0 +1,17 @@
+function basicOp(operation, value1, value2) {
+  // switch(operation) {
+  //   case '+':
+  //     return value1 + value2;
+  //   case '-':
+  //     return value1 - value2;
+  //   case '*':
+  //     return value1 * value2;
+  //   case '/':
+  //     return (value2 === 0) ? 'Infinity => Division By Zero' : (value1 / value2).toFixed(2);
+  //   default:
+  //     return 'Invalid Operation';
+  // }
+  return eval(value1 + operation + value2);
+}
+
+console.log(basicOp('/', 3, 7));

@@ -1,0 +1,24 @@
+/*
+  BOM [Browser Object Model]
+  - location Object
+  --- href Get / Set [URL || Hash || File || Mail]
+  --- host
+  --- hash
+  --- protocol
+  --- reload()
+  --- replace() => delete the replaced url from the history
+  --- assign()
+
+  EX:
+      // location.href = "https://google.com";
+      // location.href = 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects#function_properties';
+
+      // console.log(location.host); // 127.0.0.1:5500
+      // console.log(location.hostname); // 127.0.0.1
+
+      // console.log(location.protocol); // http:
+
+      // console.log(location.hash); // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators#increment_and_decrement
+      // => #increment_and_decrement
+
+*/

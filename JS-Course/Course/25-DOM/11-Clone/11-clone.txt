@@ -1,0 +1,7 @@
+/*
+  DOM [Cloning]
+  - cloneNode(Deep) => copy an element
+  Deep: true or false
+  - true: with the content of Element
+  - false: jsut the Element
+*/

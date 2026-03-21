@@ -1,0 +1,29 @@
+/*
+  Logical Operand(
+    && => (
+    - IF the Both operand are true it will return the
+    second value
+    EX:
+        const result = true && 'hello';
+        console.log(result); // "hello"
+    
+    - IF either operand is falsy, the falsy value is returned
+    EX:
+      const result = 0 && 3;
+      console.log(result); // 0
+
+    - IF Both are Falsy, it returns the first falsy value
+    EX:
+      const result = false && 0;
+      console.log(result); // false
+    )
+  )
+
+  || => (
+  - IF one of these values is true
+  EX:
+    // const result = "This is truthy" || false;
+    const result = false || "This is truthy";
+    console.log(result);
+  )
+*/

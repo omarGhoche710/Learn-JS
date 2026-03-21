@@ -1,0 +1,114 @@
+في JavaScript مش كل العمليات بتغيّر الـ array نفسه. في عمليات تعدّل (mutate) الـ array، وفي عمليات ما بتعدّل (non-mutate) وبترجّع Array جديدة.
+
+هون قائمة مرتّبة وواضحة بكل شي:
+
+
+---
+
+✅ عمليات بتغيّر الـ Array (Mutating Methods)
+
+هاي الميثودز بتعدّل المحتوى الأصلي للـ array:
+
+1. push()
+
+بيضيف عنصر/عناصر بآخر الـ array.
+
+2. pop()
+
+بيشيل آخر عنصر.
+
+3. shift()
+
+بيشيل أول عنصر.
+
+4. unshift()
+
+بيضيف عناصر بأول الـ array.
+
+5. splice()
+
+أقوى وحدة:
+تحذف، تضيف، أو تبدّل عناصر من النص.
+
+6. sort()
+
+بيرتّب الـ array وبيعدّلها.
+
+7. reverse()
+
+بيقلب ترتيب العناصر وبيعدّل الأصل.
+
+8. fill()
+
+بيملأ جزء من الـ array بقيمة معيّنة.
+
+9. copyWithin()
+
+بينسخ عناصر من مكان لمكان جوّا نفس الـ array.
+
+
+---
+
+❌ عمليات ما بتغيّر الـ Array (Non-Mutating Methods)
+
+هاي ما بتعدّل الأصل، بس بترجّع Array جديدة أو قيمة:
+
+1. map()
+
+بيرجع Array جديد بعد تعديل العناصر.
+
+2. filter()
+
+بيرجع Array جديد من العناصر يلي تحقّق شرط معيّن.
+
+3. slice()
+
+يعمل نسخة من جزء من الـ array.
+
+4. concat()
+
+يجمّع Array مع Array أو عناصر تانية ويرجع Array جديد.
+
+5. join()
+
+يرجع string.
+
+6. reduce()
+
+يرجع قيمة نهائية (number, object, ...).
+
+7. find() / findIndex()
+
+ترجع عنصر/رقم index، بدون تعديل array.
+
+8. includes() / indexOf()
+
+ترجع true/false أو index.
+
+
+---
+
+🔥 جدول مختصر سريع
+
+العملية	بتغيّر array؟
+
+push / pop	نعم
+shift / unshift	نعم
+splice	نعم
+sort	نعم
+reverse	نعم
+fill	نعم
+copyWithin	نعم
+map / filter	لا
+slice	لا
+concat	لا
+reduce	لا
+join	لا
+find	لا
+indexOf / includes	لا
+
+
+
+---
+
+إذا بدك، بعطيك أمثلة على كل وحدة مع شرح الفرق بالذاكرة (mutability).

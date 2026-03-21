@@ -1,0 +1,13 @@
+1-
+window.onload = function(){
+  document.querySelector("h1").style.display = "none"; 
+}
+it's mean that when all the page is loaded width the Images
+and Files CSS run this function
+
+2-
+document.addEventListener("DOMContentLoaded",function(){
+  console.log("The Html is ready");
+});
+It's mean that when the html just is loaded without the 
+images and css files, run this function

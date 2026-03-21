@@ -1,0 +1,16 @@
+  ES6 (
+    - Bref OF: EcmaSrcipt 6
+    - Work: It's a company that put all the rules
+            related to a language like JS.
+            The all developers should follow these rules.
+    - EcmaSrcipt 6 - New Features: To see the new upates
+    - Example:
+      new(
+          let name = "omar"
+          console.log(`Hello ${name}`);
+      ) 
+      old(
+          var name = "omar"
+          console.log("Hello " + name);
+      )
+  )

@@ -1,0 +1,43 @@
+// DOM - Challenge
+// --- Body --
+document.body.style.fontFamily = 'Arial, Helvetica, sans-serif'
+
+// --- Header ---
+let header = document.createElement("div");
+
+header.style.cssText =
+  "display: flex; align-items: center; justify-content: space-between; padding: 15px; background-color: rgba(248, 248, 248, 0.88)";
+
+// Text_Header
+let myH1 = document.createElement('h1');
+let myH1Text = document.createTextNode('Elzero');
+
+myH1.style.cssText = 'color: green; padding: 0; margin: 0; font-size: 20px;';
+
+myH1.append(myH1Text);
+
+// Link_Header
+let myUl = document.createElement('ul');
+let myArrayLink = ['Home', 'About', 'Service', 'Contact'];
+
+myUl.style.cssText = `list-style: none; padding-right: 0; margin: 0; display: flex`;
+
+myArrayLink.forEach(function(e) {
+  let myLi = document.createElement('li');
+  let myLink = document.createElement('a');
+
+  myLi.style.cssText = 'margin-right: 10px';
+  
+  myLink.style.cssText = 'font-size: 16px; text-decoration: none; color: #777'
+  myLink.href = `/${e.slice(0, 1).toLowerCase()}${e.slice(1)}`;
+  myLink.innerHTML = e;
+
+  myLi.append(myLink);
+  myUl.append(myLi);
+});
+
+// Append The Header And Link
+header.append(myH1);
+header.append(myUl);
+
+document.body.prepend(header);

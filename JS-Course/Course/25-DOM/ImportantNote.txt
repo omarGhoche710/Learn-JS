@@ -1,0 +1,43 @@
+/*
+  Important Note:
+  - If an element has not an attribut specific for it we can't add
+  it by the method => myDiv.href =...  [because the div has not an href]
+  - In this case we should use the setAttribute Method, because it work
+  for all the elements
+*/
+---------------------------------------
+/*
+  Important Note:
+  1️⃣ Node
+  👉 The general concept:
+  Everything in the DOM is a Node.
+  
+  2️⃣ Element
+  👉 A special type of Node
+  It represents HTML tags.
+  <div></div>   <!-- Element Node -->
+  ---> document.createElement("p");
+  
+  3️⃣ Text
+  👉 The text inside HTML elements.
+  <div>Hello</div>
+  Hello = a Text Node
+  ---> document.createTextNode("Hello");
+
+  3️⃣ Comment
+  ---> document.createComment("This is A Div");
+
+  --------
+  Why we use them?
+  Because the function appendChild don't accept a type
+  different that node
+*/
+---------------------------------------------
+/*
+  Wich is the best?
+  btn.onclick = function () {
+    sayHello();
+  };// If i want to write a condition or put Parameters
+
+  btn.onclick = sayHello;
+*/

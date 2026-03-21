@@ -1,0 +1,52 @@
+/*
+  Currying Function Technique OR Function Chine (
+  )
+  EX:   
+    // function sum() {
+    //   let x = 10;
+    //   return function() {
+    //     console.log(x);
+    //   }
+    // }
+    // sum(); // 
+    // console.log(sum());     // ƒ () {
+    //                         //   console.log(x);
+    //                         // } 
+    // sum()();// 10
+  EX:
+    function sum(a) {
+      return function(b) {
+        return function(c) {
+          return function(d) {
+            return a + b + c + d;
+          }
+        }
+      }
+    }
+
+    console.log(sum()()()()); // NaN
+    console.log(sum(10)(20)(30)(40)); // 100
+    console.dir(sum()); // Important to see the closure
+    // Closure:
+    // When we have a global variable or parameters
+    // and after it we have return, they will be deleted
+    // but In JavaScript these variable or parameters will be
+    // stocked in the Closure[just if we are using them in the last return]
+    // Ex:
+    // console.dir(sum()()());
+    // 0: Closure {c: undefined}
+    // 1: Closure {b: undefined}
+    // 2: Closure (sum) {a: undefined}
+  Ex:
+    function test() {
+      let x = 10;
+      let y = 20;
+      return function() {
+        console.log(x);
+      }
+    }
+
+    let sum = test();
+
+    console.dir(sum); // y is not in the closer because we don't use it
+*/

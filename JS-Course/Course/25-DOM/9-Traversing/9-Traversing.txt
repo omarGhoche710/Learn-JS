@@ -1,0 +1,39 @@
+/*
+  DOM [Traversing]
+  - nextSibling
+  - previousSibling
+  - nextElementSibling
+  - previousElementSibling
+  - parentElement
+
+  EX:
+      let one = document.getElementById("one");
+
+      console.log(one.nextElementSibling);
+
+      // let btn = document.getElementById("btn");
+
+      // btn.onclick = function () {
+      //   let myElement = document.createElement("div");
+      //   let myHeader = document.createElement("h1");
+      //   let myEvent = document.createElement("button");
+
+      //   myElement.style.cssText = "color: #ddd; padding: 20px;";
+
+      //   myHeader.innerHTML = "Hello";
+
+      //   myEvent.id = "btn_cancel";
+      //   myEvent.innerHTML = "Cancel";
+
+      //   myEvent.onclick = function () {
+      //     this.parentElement.remove();
+      //   };
+
+      //   myElement.append(myHeader);
+      //   myElement.append(myEvent);
+
+      //   document.body.append(myElement);
+      // };
+*/
+-------------------------
+

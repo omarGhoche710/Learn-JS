@@ -1,0 +1,53 @@
+  Console (
+    Methods:
+      - log
+      - error => For Errors
+      - table => (
+          // table OF Array
+          console.table(["Elzero", "Ahmed", "Sameh", "Gamal", "Aya"]);
+
+          // table OF Array OF Objects
+          let students = [
+            {name: "Omar", age: 20},
+            {name: "Hamza", age: 22},
+            {name: "Saleh", age: 25},
+          ];
+          console.table(students);
+
+          // table OF Objects
+          let student = {
+            name: "Omar",
+            age: 20,
+            country: "Lebanon"
+          };
+          console.table(student);
+        )
+      - group => (
+          Example: 
+                console.group("Group 1");
+                console.log("Message One");
+                console.log("Message Two");
+                console.group("Child Group");
+                console.log("Message One");
+                console.log("Message Two");
+                console.group("Grand Child Group");
+                console.log("Message One");
+                console.log("Message Two");
+                console.groupEnd();
+                console.groupEnd();
+                console.groupEnd();
+                console.group("Group 2");
+                console.log("Message One");
+                console.log("Message Two");
+        )
+
+    Styling:
+      - Syntax: ("Hello from %cJs File", "color: red");
+      - If we don't put %c it will take the styl as a text
+
+    Web API: The console is not a process include in JS
+              it is from WEB API (Application Programming interface)
+              that provides services and methods, then we use it 
+              by JS.
+  )
+  

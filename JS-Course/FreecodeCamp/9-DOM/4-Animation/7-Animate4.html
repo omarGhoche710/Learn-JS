@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background: #f1f1f1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+
+      .square {
+        background: #1b1b32;
+        width: 10rem;
+        aspect-ratio: 1/1;
+        margin-bottom: 20px;
+      }
+
+      button {
+        margin: 10px;
+        padding: 10px 20px;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="square" id="square"></div>
+
+    <div>
+      <button id="play-btn">Play</button>
+      <button id="pause-btn">Pause</button>
+    </div>
+    <script>
+      const square = document.getElementById("square");
+      const playBtn = document.getElementById("play-btn");
+      const pauseBtn = document.getElementById("pause-btn");
+
+      const animation = square.animate(
+        [{ transform: "translate(0)" }, { transform: "translate(100px)" }],
+        {
+          duration: 2000,
+          iterations: Infinity,// I put it to show the animation finsished
+          direction: "alternate",
+          easing: "ease-in-out",
+        },
+      );
+
+      animation.onfinish = () => {
+        console.log("Animation finished");
+      };
+      // animation.pause();
+
+      playBtn.addEventListener("click", () => {
+        animation.play();
+        console.log("Animation Play");
+      });
+
+      pauseBtn.addEventListener("click", () => {
+        animation.pause();
+        console.log("Animation Pause");
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,166 @@
+/*
+  Object(
+    - Create Object with create Method
+    - The parameter of create is used as A Prototype for the new Object(نموذج)
+    - It can be empty ==> {}
+    - The properties and methods for the new Oject are for 
+    the object prototype
+    - The new Object is related by the prototype, that mean if i change in
+    the prototype the new Object will be upated
+    - If i declare a property present in the prototype, it will 
+    override the property in the prototype
+  )
+    EX2:
+      let user = {
+        age: 20,
+        doubleAge: function() {
+          return this.age * 2;
+        },
+      };
+
+      console.log(user);
+      console.log(user.age);
+      console.log(user.doubleAge());
+
+      let obj = Object.create({});
+
+      obj.a = 100;
+
+      console.log(obj);
+
+      let copyObj = Object.create(user);
+
+      copyObj.age = 30; // It is not update for the value age in the prototype
+
+      console.log(copyObj);
+      console.log(copyObj.age); // From Prototype iF it is not a property
+                              // like it in the newObject
+      console.log(copyObj.doubleAge()); // From Prototype if we don't put this
+  
+    EX:2
+    const person = {
+      isHuman: false,
+      printIntroduction() {
+        console.log(`My name is ${this.name}. Am I human? ${this.isHuman}`);
+      },
+    };
+
+    const me = Object.create(person);
+
+    me.name = "Omar"; // "name" is a property set on "me", but not on "person"
+    me.isHuman = true; // Inherited properties can be overwritten
+
+    me.printIntroduction();
+    // Expected output: "My name is Matthew. Am I human? true"
+*/
+
+/*
+  Object.create(proto, propertiesObject)(
+  - propertiesObject give you all the Controll on the property:
+  name: { 
+    value: "Omar",
+    writable: true, // Can i change the value or no
+    enumerable: true, // Can i access it by for...in
+    configurable: true, // Can i delete it?
+  }
+
+  => By Default they are false, that mean if i don't write them
+  they are false
+  )
+  EX1:
+      const proto = {
+      type: "human",
+    };
+
+    const me = Object.create(proto, {
+      name: {
+        value: "Omar",
+        writable: true,
+        enumerable: true,
+        configurable: false,
+      },
+      age: {
+        value: 20,
+        writable: false,
+        enumerable: false,
+        configurable: true,
+      }
+    })
+
+    me.age = 30;
+
+    console.log(me.age); // Not change
+    console.log(me.name); // Omar
+    console.log(me.type); // human
+
+    for (let key in me) {
+      console.log(`${key} => ${me[key]}`);
+    }
+    // name => Omar
+    // type => human
+
+    delete me.age;
+    delete me.name;
+    console.log(me.age); // undefined
+    console.log(me.name); // "Omar"
+  
+  EX2:
+      /*
+      Ex: 2
+      const user = Object.create({}, {
+      id: {
+        value: 123,
+        writable: false,
+        enumerable: true,
+        configurable: false
+      },
+      name: {
+        value: "Omar",
+        writable: true,
+        enumerable: true,
+        configurable: true
+      }
+    });
+*/
+----------------------
+Big Example:
+
+const cartItemProto = {
+  render() {
+    this.el.textContent = `${this.name} - ${this.price}$ (x${this.qty})`;
+  },
+  addToCart(container) {
+    container.append(this.el);
+  },
+  increaseQty() {
+    this.qty++;
+    this.render();
+  }
+};
+
+function createCartItem(name, price) {
+  return Object.create(cartItemProto, {
+    el: {
+      value: document.createElement("div")
+    },
+    name: {
+      value: name,
+      writable: true
+    },
+    price: {
+      value: price,
+      writable: true
+    },
+    qty: {
+      value: 1,
+      writable: true
+    }
+  });
+}
+
+let main = document.getElementById("main");
+
+let item = createCartItem("HP Laptop", 350);
+
+item.render();
+item.addToCart(main);

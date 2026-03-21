@@ -1,0 +1,55 @@
+/*
+  Function this Keyword
+  - this Introduction
+  - this Inside Object Method
+  --- When a function is called as a method of an object,
+  --- its this is set to the object the method is called on.
+  - Global Object
+  - Test Variables With Window And This
+  - Global Context
+  - Function Context
+  
+  - Alone, this refers to the global object.
+  - In a function, this refers to the global object.
+  - In a function, in strict mode, this is undefined.
+  - In an object method, this refers to the object.
+  - In an event, this refers to the element that received the event.
+  - Methods like call(), apply(), and bind() can refer this to any object.
+  EX1:
+    console.log(this); // window { .. }
+
+    myVar = 100;
+    console.log(window.myVar);
+
+    function sayHello() {
+      console.log(this); // window { .. }
+    }
+
+    document.getElementById("show").onclick = function() {
+      console.log(this); // <button id="show">show</button>
+      // The owner of This Function is the btn
+    };
+
+  EX2:
+    const a = function() {
+    console.log(this); // Window
+    const b = function() {
+      console.log(this); // Window
+      const c = {
+        name: "Shadow",
+        showThis() {
+          console.log(this);// c Object
+        }
+      };
+      c.showThis();
+    };
+    b();
+  };
+
+  a();
+
+  Global This:
+  console.log(globalThis); // window { .. }
+  Search
+  - Strict Mode
+*/

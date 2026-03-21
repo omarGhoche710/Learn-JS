@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .title {
+        padding: 10px;
+        width: fit-content;
+        margin: auto;
+        text-align: center;
+        visibility: hidden;
+        transition: 1s;
+        transform: translateX(-50%);
+      }
+
+      .show {
+        visibility: visible;
+        transform: translateX(100%);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="1" class="title">Title 1</div>
+    <div id="2" class="title">Title 2</div>
+    <div id="3" class="title">Title 3</div>
+    <div id="4" class="title">Title 4</div>
+    <script>
+      const title1 = document.getElementById("1");
+      const title2 = document.getElementById("2");
+      const title3 = document.getElementById("3");
+      const title4 = document.getElementById("4");
+      function displayTitle(title, duration) {
+        return new Promise((res, rej) => {
+          setTimeout(() => {
+            res(title);
+          }, duration);
+        });
+      }
+
+      async function run(title, duration) {
+        const myTitle = await displayTitle(title, duration);
+        title.classList.add("show");
+      }
+
+      run(title1, 1000)
+        .then(() => run(title2, 1000))
+        .then(() => run(title3, 1000))
+        .then(() => run(title4, 1000))
+
+      // async function runAll() {
+      //   await run(title1, 1000);
+      //   await run(title2, 1000);
+      //   await run(title3, 1000);
+      //   await run(title4, 1000);
+      // }
+
+      // runAll();
+    </script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

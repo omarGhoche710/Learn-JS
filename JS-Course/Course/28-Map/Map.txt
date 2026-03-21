@@ -1,0 +1,124 @@
+/*
+  - Map Data Type
+  Syntax: new Map(Iterable With Key/Value)
+  -- Map vs Object
+  --
+  ------ Map => Does Not Contain Key By Default
+  ------ Object => Has Default Keys
+  --
+  ------ Map => Key Can Be Anything [Function, Object, Any Primitive Data Types]
+  ------ Object => String Or Symbol
+  --
+  ------ Map => Ordered By Insertion
+  ------ Object => Not 100% Till Now
+  --
+  ------ Map => Get Items By Size
+  ------ Object => Need To Do Manually
+  --
+  ------ Map => Can Be Directly Iterated
+  ------ Object => Not Directly And Need To Use Object.keys() And So On
+  --
+  ------ Map => Better Performance When Add Or Remove Data
+  ------ Object => Low Performance When Comparing To Map
+
+  EX:
+
+      let myObject = {};
+      let myEmptyObject = Object.create(null); // like Map
+      let myMap = new Map();
+
+      console.log(myObject);
+      console.log(myEmptyObject);
+      console.log(myMap);
+
+      // --- Object ---
+
+      // -- Key --
+
+      let myNewObject = {
+        10: "Number",
+        "10": "String",
+      }
+      // The second will override the first
+
+      console.log(myNewObject[10]); // String
+      console.log(myNewObject["10"]); // String
+
+      // -- Size --
+      let size = Object.entries(myNewObject).length;
+
+      // -- Loop --
+      for(let [key, value] of Object.entries(myNewObject)) {
+        console.log(key, value);
+      }
+
+      // --- Map ---
+
+      // Key
+      let user = {
+        a: 1,
+        b: 2
+      }
+
+      function doSomething() {
+
+      }
+
+      let myNewMap = new Map();
+      myNewMap.set(10, "Number");
+      myNewMap.set("10", "String");
+      myNewMap.set(true, "Boolean");
+      myNewMap.set(user, "Object");
+      myNewMap.set(doSomething, "Function");
+
+      console.log(myNewMap.get(10)); // Number
+      console.log(myNewMap.get("10")); // String
+      console.log(myNewMap.get(true)); // Boolean
+      console.log(myNewMap.get(user)); // Object
+      console.log(myNewMap.get(doSomething)); // undefined
+
+      // -- Size --
+      let sizeMap = myNewMap.size;
+      console.log(sizeMap);
+
+      // -- Loop --
+      myNewMap.forEach((ele, index) => {
+        console.log(index + " => "  + ele);
+      })
+*/
+
+/*
+  - Map Data Type
+  Methods
+  --- set
+  --- get
+  --- delete
+  --- clear
+  --- has
+
+  Properties
+  --- size
+
+  EX:
+      let myMap = new Map([
+        ["name", "Omar"],
+        [10, 'number'],
+        [true, "Boolean"]
+      ]);
+
+      // -- Has --
+      if (myMap.has("10")) {
+        console.log("Found");
+      } else {
+        console.log("Not Found"); // Not Found because 10 string
+      }
+
+      // -- delete --
+      let check = myMap.delete(true);
+      console.log(check);
+
+      // -- clear --
+      myMap.clear();
+
+      console.log(myMap);
+*/

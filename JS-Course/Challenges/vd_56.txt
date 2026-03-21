@@ -1,0 +1,29 @@
+/*
+  Loop Challenge
+*/
+
+let myAdmins = ["Ahmed", "Osama", "Sayed", "Stop", "Samera"];
+let myEmployees = ["Amgad", "Samah", "Ameer", "Omar", "Othman", "Amany", "Samia", "Anwar", "amir"];
+// let i = 0;
+let x = myAdmins.indexOf("Stop");
+
+document.write(`<div>We Have X Admins</div>`);
+// for (; myAdmins[i] !== "Stop"; i++); 
+// document.write(`<div>We Have ${i} Admins</div>`);
+document.write(`<div>We Have ${x} Admins</div>`);
+document.write("<hr>");
+
+for (let i = 0; i < x; i++) {
+  document.write("<div>");
+  document.write(`The Admin For Team ${i + 1} is ${myAdmins[i]}`);
+  document.write("<h3>Team Members: </h3>");
+  let k = 0;
+  for (let j = 0; j < myEmployees.length; j++) {
+    if (myEmployees[j].trim().toUpperCase().startsWith(myAdmins[i].trim()[0])) {
+      document.write(`<p>- ${k + 1} ${myEmployees[j][0].toUpperCase() + myEmployees[j].slice(1)}</p>`);
+      k++;
+    }
+  }
+  document.write("</div>");
+  document.write("<hr>");
+}

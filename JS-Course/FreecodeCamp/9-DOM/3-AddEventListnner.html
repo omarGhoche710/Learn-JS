@@ -1,0 +1,68 @@
+  <!doctype html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Document</title>
+      <style>
+        body {
+          background-color: grey;
+        }
+
+        button {
+          background: linear-gradient(135deg, #4da3ff, #007bff);
+          color: white;
+          border: none;
+          padding: 12px 20px;
+          border-radius: 8px;
+          font-size: 16px;
+          font-weight: 500;
+          cursor: pointer;
+          transition: all 0.25s ease;
+          box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
+        }
+
+        button:hover {
+          background: linear-gradient(135deg, #66b3ff, #3399ff);
+          box-shadow: 0 6px 14px rgba(0, 123, 255, 0.3);
+          transform: translateY(-2px);
+        }
+
+        button:disabled {
+          opacity: 0.5;
+          cursor: not-allowed;
+        }
+
+        .bg-blue {
+          background-color: rgb(212, 150, 36);
+        }
+      </style>
+    </head>
+    <body>
+      <h1>Event Listener examples</h1>
+      <p id="para">MouseOver this text to remove the event listener</p>
+      <button id="btn">Change background color</button>
+      <script>
+        const bodyEl = document.querySelector("body");
+        const para = document.getElementById("para");
+        const btn = document.getElementById("btn");
+
+        function toggleBgColor() {
+          bodyEl.classList.toggle("bg-blue");
+        }
+
+        btn.addEventListener("click", toggleBgColor);
+
+        para.addEventListener("mouseenter", function () {
+          // btn.removeEventListener('click', toggleBgColor);
+          // console.log('Done!');
+          btn.disabled = true;
+        });
+
+        para.addEventListener("mouseleave", function () {
+          // btn.addEventListener('click', toggleBgColor);
+          btn.disabled = false;
+        });
+      </script>
+    </body>
+  </html>

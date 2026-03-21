@@ -1,0 +1,62 @@
+// This Challenge convert to Bit and make some opeartion
+// on two number [OR, AND, XOR]
+
+function convertToBit(n) {
+	return n.toString(2).padStart(8, '0');
+}
+
+function bitwiseAND(n1, n2) {
+	let n1_bit = convertToBit(n1);
+	let n2_bit = convertToBit(n2);
+	let bit_AND = "";
+	for (let i = 0; i < n1_bit.length; i++) {
+		if ((n1_bit[i] === '1') && (n2_bit[i] === '1')) {
+			bit_AND += '1';
+		} else {
+			bit_AND += '0';
+		}
+	}
+  return bit_AND;
+}
+
+function bitwiseOR(n1, n2) {
+	let n1_bit = convertToBit(n1);
+	let n2_bit = convertToBit(n2);
+	let bit_OR = "";
+	for (let i = 0; i < n1_bit.length; i++) {
+		if ((n1_bit[i] === '1') || (n2_bit[i] === '1')) {
+			bit_OR += '1';
+		} else {
+			bit_OR += '0';
+		}
+	}
+  return bit_OR;
+}
+
+function bitwiseXOR(n1, n2) {
+	let n1_bit = convertToBit(n1);
+	let n2_bit = convertToBit(n2);
+	let bit_XOR = "";
+	for (let i = 0; i < n1_bit.length; i++) {
+		if (n1_bit[i] === n2_bit[i]) {
+			bit_XOR += '0';
+		} else {
+			bit_XOR += '1';
+		}
+	}
+  return bit_XOR;
+}
+
+console.log(bitwiseAND(6, 23));
+console.log(bitwiseOR(6, 23));
+console.log(bitwiseXOR(6, 23));
+
+// we can use It to return the value
+let a = [7, 6, 4].toString();
+let a_string = "";
+for (let i = 0; i < a.length; i++) {
+  if (a[i] === ',') continue;
+  a_string += a[i];
+}
+
+console.log(a_string);

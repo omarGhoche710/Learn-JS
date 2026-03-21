@@ -1,0 +1,81 @@
+  Control Flow (
+    - if
+    - else if
+    - else
+
+    EX:
+      let price = 100;
+      let discount = false;
+      let discountAmount = 30;
+      // let country = "Egypt";
+      // let country = "Syria";
+      let country = "KSA";
+
+      if (discount === true) {
+        price -= discountAmount;
+      } else if (country === "Egypt") {
+        price -= 40;
+      } else if (country === "Syria") {
+        price -= 50;
+      } else {
+        price -= 10;
+      }
+
+      console.log(price);
+*/
+
+/*
+  Nested If Condition(
+      let price = 100;
+      let discount = false;
+      let discountAmount = 30;
+      let country = "Egypt";
+      // let country = "Syria";
+      // let country = "KSA";
+      let student = true;
+
+      if (discount === true) {
+        price -= discountAmount;
+      } else if (country === "Egypt") {
+        if (student) {
+          price -= discountAmount + 30;
+        } else {
+          price -= discountAmount + 10;
+        }
+      } else if (country === "Syria") {
+        price -= 50;
+      } else {
+        price -= 10;
+      }
+
+      console.log(price);
+  )
+*/
+
+/*
+  Conditional (Ternary) Operator (
+    condition ? IF  true : IF false
+  )
+*/
+
+/*
+  Conditional Ternary Operator (
+      let theName = "Ahmed";
+      let theGender = "Male";
+      let theAge = 60;
+
+      let result = theGender === "Male" ? "Mr" : "Mrs";
+
+      console.log(`Hello ${result} ${theName}`);
+
+      let result2 =
+        theAge < 20
+          ? "Less than 20"
+          : theAge >= 20 && theAge <= 60
+          ? "20 To 60"
+          : theAge > 60
+          ? "greater than 60"
+          : "Unknown";
+
+      console.log(result2);
+  )

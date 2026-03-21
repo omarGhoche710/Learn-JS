@@ -1,0 +1,41 @@
+/*
+  If Condition Challenge
+*/
+
+
+let a = 10;
+
+if (a < 10) {
+  console.log(10);
+} else if (a >= 10 && a <= 40) {
+  console.log("10 To 40");
+} else if (a > 40) {
+  console.log("> 40");
+} else {
+  console.log("Unknown");
+}
+
+// Write Previous Condition With Ternary If Syntax
+
+let st = "Elzero Web School";
+
+if ((st.indexOf('e').toString() + st.indexOf('r').toString()) === "34") {
+  console.log("Good1");
+}
+
+// W Position May Change
+if (st.charAt(st.indexOf('W')).toLowerCase() === "w") {
+  console.log("Good2");
+}
+
+if (typeof st.indexOf("W") !== "string") {
+  console.log("Good3");
+}
+
+if (typeof st.indexOf("W") === "number") {
+  console.log("Good4");
+}
+
+if (st.slice(0, 6).repeat(2) === "ElzeroElzero") {
+  console.log("Good5");
+}

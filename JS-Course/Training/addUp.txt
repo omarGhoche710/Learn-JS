@@ -1,0 +1,35 @@
+Description:
+    In This Challenge We have to return the sum of the numbers less than number given IN Parameter
+
+// let sum = 0;
+// function addUp(num) {
+//   if (num === 0) {
+//     return sum;
+//   }
+//   if (typeof num !== 'number') {
+//     return "You should Enter A Number";
+// 	}
+// 	if (num < 1 || num > 1000) {
+//     return "You should Enter A Number Between 1 and 1000";
+// 	}
+// 	sum += num;
+// 	return addUp(num - 1);// we put here return because every
+//                         // function should take the final result
+// }
+
+function addUp(num) {
+  if (num === 0) {
+    return 0;
+  }
+  if (typeof num !== 'number') {
+    return "You should Enter A Number";
+	}
+	if (num < 1 || num > 1000) {
+    return "You should Enter A Number Between 1 and 1000";
+	}
+	return num + addUp(num - 1);// we put here return because every
+                        // function should take the final result
+}
+
+let a = addUp(9);
+console.log(a);
