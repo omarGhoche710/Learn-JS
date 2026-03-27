@@ -28,43 +28,405 @@
       </div>
       <div class="setting-container">
         <div class="option-box">
-          <div class="color-option">
-            <h4>Colors</h4>
-            <ul class="color-list">
-              <li class="active"></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-            </ul>
+          <h4>Colors</h4>
+          <ul class="color-list">
+            <li class="active" data-color="#ff9800"></li>
+            <li data-color="#e91e63"></li>
+            <li data-color="#009688"></li>
+            <li data-color="#03a9f4"></li>
+            <li data-color="#4caf50"></li>
+          </ul>
+        </div>
+
+        <div class="option-box">
+          <h4>Random Backgrounds</h4>
+          <div class="random-backgrounds">
+            <button class="yes active" id="yes-btn">Yes</button>
+            <button class="no" id="no-btn">No</button>
+          </div>
+        </div>
+
+        <div class="option-box">
+          <h4>Show Bullets</h4>
+          <div class="bullets-option">
+            <button class="yes active" id="show-bullets-btn">Yes</button>
+            <button class="no" id="hide-bullets-btn">No</button>
           </div>
         </div>
       </div>
     </div>
     <!-- End Setting Box -->
 
+    <!-- Start Nav Bullets -->
+    <div class="nav-bullets">
+      <div class="bullet" data-section="about-us">
+        <div class="tooltip">About Us</div>
+      </div>
+      <div class="bullet" data-section="skills">
+        <div class="tooltip">Our Skills</div>
+      </div>
+      <div class="bullet" data-section="gallery">
+        <div class="tooltip">Our Gallery</div>
+      </div>
+      <div class="bullet" data-section="timeline">
+        <div class="tooltip">Timeline</div>
+      </div>
+      <div class="bullet" data-section="features">
+        <div class="tooltip">Features</div>
+      </div>
+      <div class="bullet" data-section="testimonials">
+        <div class="tooltip">Testimonials</div>
+      </div>
+    </div>
+    <!-- End Nav Bullets -->
+
     <!-- Start Landing Page -->
     <div class="landing-page">
       <div class="overlay"></div>
-      <div class="header-area">
-        <div class="logo">Special Design</div>
-        <ul class="links">
-          <li><a href="" class="active">Home</a></li>
-          <li><a href="">About</a></li>
-          <li><a href="">Service</a></li>
-          <li><a href="">Products</a></li>
-          <li><a href="">Contact</a></li>
-        </ul>
-      </div>
-      <div class="introduction-text">
-        <h1>We Are <span>Creative</span> Agency</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias
-          enim facere et quas fugiat accusamus.
-        </p>
+      <div class="container">
+        <div class="header-area">
+          <div class="logo">Special Design</div>
+          <ul class="links">
+            <li><a href="#" class="link" data-section="about-us">About</a></li>
+            <li><a href="#" class="link" data-section="skills">Skills</a></li>
+            <li><a href="#" class="link" data-section="gallery">Gallery</a></li>
+            <li><a href="#" class="link" data-section="timeline">Timeline</a></li>
+            <li><a href="#" class="link" data-section="features">Features</a></li>
+            <li><a href="#" class="link" data-section="testimonials">Testimonials</a></li>
+          </ul>
+        </div>
+        <div class="introduction-text">
+          <h1>We Are <span>Creative</span> Agency</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias
+            enim facere et quas fugiat accusamus.
+          </p>
+        </div>
       </div>
     </div>
     <!-- End Landing Page -->
+
+    <!-- Start About Us -->
+    <div class="about-us">
+      <div class="container">
+        <div class="info-box">
+          <h2>About Us</h2>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio
+            voluptatum dolor, saepe explicabo nisi vitae quam officia sequi
+            laborum, expedita eius tempora nihil, fuga et architecto quisquam
+            placeat omnis atque.
+          </p>
+        </div>
+        <div class="image-box">
+          <img src="./images/about-us.jpg" alt="" />
+        </div>
+      </div>
+    </div>
+    <!-- End About Us -->
+
+    <!-- Start Our Skills -->
+    <div class="skills">
+      <div class="container">
+        <h2 class="section-header">Our Skills</h2>
+
+        <div class="skill-list">
+          <div class="skill-box">
+            <div class="skill-name">HTML</div>
+            <div class="skill-progress">
+              <span data-progress="80%"></span>
+            </div>
+          </div>
+
+          <div class="skill-box">
+            <div class="skill-name">CSS</div>
+            <div class="skill-progress">
+              <span data-progress="70%"></span>
+            </div>
+          </div>
+
+          <div class="skill-box">
+            <div class="skill-name">JavaScript</div>
+            <div class="skill-progress">
+              <span data-progress="60%"></span>
+            </div>
+          </div>
+
+          <div class="skill-box">
+            <div class="skill-name">Python</div>
+            <div class="skill-progress">
+              <span data-progress="30%"></span>
+            </div>
+          </div>
+
+          <div class="skill-box">
+            <div class="skill-name">PHP</div>
+            <div class="skill-progress">
+              <span data-progress="50%"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Our Skills -->
+
+    <!-- Start Gallery -->
+    <div class="gallery">
+      <div class="container">
+        <h2 class="section-header">Our Gallery</h2>
+        <div class="images-box">
+          <img src="/images/01.jpg" alt="Image One" />
+          <img src="/images/02.jpg" alt="Storm Scene" />
+          <img src="/images/05.jpg" alt="Image Three" />
+          <img src="/images/01.jpg" alt="Image Four" />
+          <img src="/images/02.jpg" alt="Image Five" />
+          <img src="/images/05.jpg" alt="" />
+          <img src="/images/01.jpg" alt="" />
+          <img src="/images/02.jpg" alt="" />
+          <img src="/images/05.jpg" alt="" />
+          <img src="/images/05.jpg" alt="" />
+        </div>
+      </div>
+    </div>
+    <!-- End Gallery -->
+
+    <!-- Start Timeline -->
+    <div class="timeline">
+      <div class="container">
+        <h2 class="section-header">Our Timeline</h2>
+        <div class="timeline-content">
+          <div class="year">2018</div>
+
+          <div class="left">
+            <div class="content">
+              <h3>Testing Heading</h3>
+              <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Officiis est iste aperiam distinctio eius et id vero temporibus,
+                quas earum exercitationem cupiditate, accusantium voluptatum
+                nemo perspiciatis harum. Iusto, repudiandae ab!
+              </p>
+            </div>
+          </div>
+
+          <div class="clearfix"></div>
+
+          <div class="right">
+            <div class="content">
+              <h3>Testing Heading</h3>
+              <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Officiis est iste aperiam distinctio eius et id vero temporibus,
+                quas earum exercitationem cupiditate, accusantium voluptatum
+                nemo perspiciatis harum. Iusto, repudiandae ab!
+              </p>
+            </div>
+          </div>
+
+          <div class="clearfix"></div>
+
+          <div class="year">2016</div>
+
+          <div class="left">
+            <div class="content">
+              <h3>Testing Heading</h3>
+              <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Officiis est iste aperiam distinctio eius et id vero temporibus,
+                quas earum exercitationem cupiditate, accusantium voluptatum
+                nemo perspiciatis harum. Iusto, repudiandae ab!
+              </p>
+            </div>
+          </div>
+
+          <div class="clearfix"></div>
+
+          <div class="right">
+            <div class="content">
+              <h3>Testing Heading</h3>
+              <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Officiis est iste aperiam distinctio eius et id vero temporibus,
+                quas earum exercitationem cupiditate, accusantium voluptatum
+                nemo perspiciatis harum. Iusto, repudiandae ab!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Timeline -->
+
+    <!-- Start Features -->
+    <div class="features">
+      <h2 class="section-header">Our Features</h2>
+      <div class="container">
+        <div class="feat-box">
+          <img src="/images/Icon_01.png" alt="" />
+          <h4>Development</h4>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia!
+          </p>
+        </div>
+        <div class="feat-box">
+          <img src="/images/Icon_02.png" alt="" />
+          <h4>Development</h4>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia!
+          </p>
+        </div>
+        <div class="feat-box">
+          <img src="/images/Icon_03.png" alt="" />
+          <h4>Development</h4>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia!
+          </p>
+        </div>
+        <div class="feat-box">
+          <img src="/images/Icon_04.png" alt="" />
+          <h4>Development</h4>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia!
+          </p>
+        </div>
+        <div class="feat-box">
+          <img src="/images/Icon_05.png" alt="" />
+          <h4>Development</h4>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia!
+          </p>
+        </div>
+        <div class="feat-box">
+          <img src="/images/Icon_06.png" alt="" />
+          <h4>Development</h4>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia!
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- End Features -->
+
+    <!-- Start Testimonials -->
+    <div class="testimonials">
+      <div class="container">
+        <h2 class="section-header">Testimonials</h2>
+
+        <div class="testimonials-content">
+          <div class="ts-box">
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Cupiditate aut facilis a?
+            </p>
+            <div class="person-info">
+              <div class="image-box">
+                <img
+                  src="https://ui-avatars.com/api/?name=Omar+Ghoch&size=80"
+                  alt="Person"
+                />
+              </div>
+              <div>
+                <h4>Omar Ghoch</h4>
+                <p>CEO At Company</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="ts-box">
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Cupiditate aut facilis a?
+            </p>
+            <div class="person-info">
+              <div class="image-box">
+                <img
+                  src="https://ui-avatars.com/api/?name=Ahmad+Karim&size=80"
+                  alt="Person"
+                />
+              </div>
+              <div>
+                <h4>Ahmad Karim</h4>
+                <p>CEO At Company</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="ts-box">
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Cupiditate aut facilis a?
+            </p>
+            <div class="person-info">
+              <div class="image-box">
+                <img
+                  src="https://ui-avatars.com/api/?name=Hamza+M3oush&size=80"
+                  alt="Person"
+                />
+              </div>
+              <div>
+                <h4>Hamza M3oush</h4>
+                <p>CEO At Company</p>
+              </div>
+            </div>
+          </div>
+          <div class="ts-box">
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Cupiditate aut facilis a?
+            </p>
+            <div class="person-info">
+              <div class="image-box">
+                <img
+                  src="https://ui-avatars.com/api/?name=Hamza+M3oush&size=80"
+                  alt="Person"
+                />
+              </div>
+              <div>
+                <h4>Hamza M3oush</h4>
+                <p>CEO At Company</p>
+              </div>
+            </div>
+          </div>
+          <div class="ts-box">
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Cupiditate aut facilis a?
+            </p>
+            <div class="person-info">
+              <div class="image-box">
+                <img
+                  src="https://ui-avatars.com/api/?name=Hamza+M3oush&size=80"
+                  alt="Person"
+                />
+              </div>
+              <div>
+                <h4>Hamza M3oush</h4>
+                <p>CEO At Company</p>
+              </div>
+            </div>
+          </div>
+          <div class="ts-box">
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Cupiditate aut facilis a?
+            </p>
+            <div class="person-info">
+              <div class="image-box">
+                <img
+                  src="https://ui-avatars.com/api/?name=Hamza+M3oush&size=80"
+                  alt="Person"
+                />
+              </div>
+              <div>
+                <h4>Hamza M3oush</h4>
+                <p>CEO At Company</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Testimonials -->
 
     <script src="js/master.js"></script>
   </body>
