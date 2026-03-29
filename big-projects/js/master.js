@@ -15,6 +15,9 @@ const skillListEl = document.querySelector(".skill-list");
 const bulletBox = document.querySelector(".nav-bullets");
 const linkContainer = document.querySelector(".links");
 const ourGalleryBox = document.querySelector(".gallery .images-box");
+const resetOptionsBtn = document.getElementById("reset-options-btn");
+const toggleMenuBtn = document.getElementById("toggle-menu-btn");
+const secondLinkContainer = document.querySelector(".second-links");
 
 // ============================================================
 // Variables
@@ -119,6 +122,11 @@ document.addEventListener("click", (e) => {
     document.querySelector(".popup-overlay").remove();
     document.body.classList.remove("popup-open");
   }
+
+  // Close Menu By Clicking On the window
+  if (!secondLinkContainer.classList.contains("close") && !e.target.closest(".second-links")){
+    secondLinkContainer.classList.add("close")
+  }
 });
 
 // ============================================================
@@ -126,6 +134,20 @@ document.addEventListener("click", (e) => {
 // ============================================================
 scrollToSection(bulletBox, "bullet");
 scrollToSection(linkContainer, "link", handleActive);
+
+// ============================================================
+// Reset Options
+// ============================================================
+resetOptionsBtn.addEventListener("click", resetOptions);
+
+// ============================================================
+// Toggle Menu
+// ============================================================
+toggleMenuBtn.addEventListener("click", (e) => {
+  e.stopPropagation();
+  secondLinkContainer.classList.toggle("close");
+})
+
 
 // ============================================================
 // Functions
@@ -201,7 +223,7 @@ function randomBackgrounds() {
   imageId = setInterval(() => {
     index = (index + 1) % images.length;
     landingPage.style.backgroundImage = `url("../images/${images[index]}")`;
-  }, 3000);
+  }, 10000);
 }
 
 function scrollToSection(container, childrenClassName, handleFunc) {
@@ -226,8 +248,8 @@ function resetOptions() {
   localStorage.clear();
 
   // Reset color
-  document.documentElement.style.setProperty("--main-color", "#2196f3");
-  handleActive(colorListEl, colorListEl.querySelector("[data-color='#2196f3']"));
+  document.documentElement.style.setProperty("--main-color", "#ff9800");
+  handleActive(colorListEl, colorListEl.querySelector("[data-color='#ff9800']"));
 
   // Reset bullets
   bulletBox.classList.remove("hide");
